@@ -95,3 +95,5 @@ Template::header("Admin area"); ?>
 
 <?php
 Template::footer();
+
+?>

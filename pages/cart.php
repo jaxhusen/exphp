@@ -48,3 +48,4 @@ Template::header("Varukorg"); ?>
 
 
 <?php Template::footer();
+?>

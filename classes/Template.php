@@ -28,8 +28,8 @@ class Template
             </header>
             <nav class="nav">
                 <a href="/">Startsida</a>
-                <a href="/pages/products.php">Products</a>
-                <a href="/pages/cart.php">Cart(<?= $cart_count ?>)</a>
+                <a href="/pages/products.php">Produkter</a>
+                <a href="/pages/cart.php">Varukorg(<?= $cart_count ?>)</a>
                 <?php if($is_logged_in) : ?>
                     <a href="/pages/orders.php"></i>Mina ordrar</a>
                 <?php endif; ?>

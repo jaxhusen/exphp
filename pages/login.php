@@ -26,3 +26,5 @@ if(isset($_GET["error"]) && $_GET["error"] == "wrong_pass") : ?>
 <?php
 
 Template::footer();
+
+?>

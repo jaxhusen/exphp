@@ -40,3 +40,4 @@ Template ::header("Admin-user");
 
 
 Template::footer();
+?>

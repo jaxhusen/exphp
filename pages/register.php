@@ -17,7 +17,5 @@ Template::header("Register user");
 
 
 <?php
-
 Template::footer();
-
 ?>
