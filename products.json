@@ -1,0 +1,32 @@
+[
+    {
+        "id": "0",
+        "productName": "Corona",
+        "productPrice": "1049",
+        "productImg": ""
+    },
+    {
+        "id": "1",
+        "productName": "Skyfall",
+        "productPrice": "749",
+        "productImg": ""
+    },
+    {
+        "id": "2",
+        "productName": "BW",
+        "productPrice": "1049",
+        "productImg": ""
+    },
+    {
+        "id": "3",
+        "productName": "Twinning",
+        "productPrice": "1049",
+        "productImg": ""
+    },
+    {
+        "id": "4",
+        "productName": "StreetsofSaturn",
+        "productPrice": "1649",
+        "productImg": ""
+    }
+]
