@@ -225,12 +225,100 @@ input.form-input{
 
 
 
+/* -------------- ADMIN ----------- */
+.admin-users{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-users-box{
+    border: 1px solid var(--color-primary);
+    padding: 4%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    box-shadow: 0 0 40px var(--color-primary);
+    border-radius: 5px;
+    width: 30%;
+}
+
+.admin-user-card{
+    padding: 1%;
+}
+
+.users-role{
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.users-name{
+    text-decoration: none;
+    color: var(--color-heading);
+    cursor: pointer;
+}
+
+.users-name:hover{
+    color: black;
+}
+
+.admin-orders-master{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: space-evenly;
+}
+
+.admin-orders-container{
+    padding: 5%;
+    max-width: 350px;
+    max-height: 500px;
+    margin: 5%;
+    border: 1px solid var(--color-primary);
+    box-shadow: 0 0 40px var(--color-primary);
+}
+.admin-box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.admin-box-left{
+    display: flex;
+    flex-direction: row;
+}
+
+.admin-box-right{
+    display: flex;
+    flex-direction: row;
+}
+
+.admin-heading{
+    margin-top: 2%;
+    margin-left: 2%;
+}
 
 
 
 
 
+/* .form-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
 
+.form-login{
+    border: 1px solid var(--color-primary);
+    padding: 4%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    box-shadow: 0 0 40px var(--color-primary);
+    border-radius: 5px;
+    width: 30%;
+} */
 
 
 
@@ -261,10 +349,8 @@ h3{
 
 
 .logged-in-box{
-    display: flex;
     padding: 10px;
     margin-top: -5px;
-    /* justify-content: flex-end; */
 }
 
 .logout-btn{
@@ -284,27 +370,6 @@ h3{
     cursor: pointer;
 }
 
-
-/* input[type=text],
-input[type=number],
-input[type=password],
-textarea,
-select{
-    border: 1px solid black;
-    font-size: 15px;
-    padding: 5px;
-    margin: 3px 0;
-    width: 300px;
-}
-
-
-input[type=file]{
-    position: absolute;
-    margin-left: 50px;
-    margin-top: 0px;
-    padding: 5px 10px;
-    font-size: 15px;
-} */
 
 
 

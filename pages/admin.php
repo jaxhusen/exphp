@@ -28,64 +28,89 @@ $orders_db = new OrdersDb();
 $orders = $orders_db->get_all();
 
 
-Template::header("Admin area"); ?>
+Template::header("Admin sida"); ?>
 
 
- <h2> Create product </h2>
-<form action="/admin-scripts/post-create-product.php" method="post" enctype="multipart/form-data">
-    <input type="text" name="title" placeholder="Title"> <br>
-    <input type="number" name="price" placeholder="Price">
-    <input type="file" name="image" accept="image/*"><br>
-    <input type="submit" value="Save">
+ <h2 class="admin-heading"> Skapa produkt </h2>
+ <div class="form-container">
+<form class="form-login" action="/admin-scripts/post-create-product.php" method="post" enctype="multipart/form-data">
+    <input class="form-input" type="text" name="title" placeholder="Titel"> <br>
+    <input class="form-input" type="number" name="price" placeholder="Pris"><br>
+    <input class="form-input" type="file" name="image" accept="image/*"><br>
+    <div class="form-btns">
+        <input class="user-regitration" type="submit" value="Spara">
+    </div>
 </form> 
-
+</div>
 <hr>
 
-<h2> Products </h2>
+<h2 class="admin-heading"> Produkter </h2>
+<div class="admin-users">
+        <div class="admin-users-box">
 <?php foreach ($products as $product) : ?>
-    <p>
-        <a href="/pages/admin-product.php?id=<?= $product->id ?>">
-            <?= $product->title ?>
-        </a>
-    </p>
+    <div class="admin-user-card">
+        <a class="users-name" href="/pages/admin-product.php?id=<?= $product->id ?>">
+            <?= $product->title ?></a> 
+            <i class="users-role"> - <?= $product->price ?> SEK</i></br>
+        </div>
 <?php endforeach; ?>
+</div>
+</div>
+
 <hr>
 
 
-<h2> Users </h2>
+<h2 class="admin-heading"> Användare </h2>
+<div class="admin-users">
+        <div class="admin-users-box">
 <?php foreach ($users as $user) : ?>
-    <p>
-        <a href="/pages/admin-user.php?username=<?= $user->id ?>"><?= $user->username ?></a>
-        <i><?= $user->role ?></i>
-    </p>
+<div class="admin-user-card">
+            <a class="users-name" href="/pages/admin-user.php?username=<?= $user->id ?>"><?= $user->username ?></a>
+        <i class="users-role">- <?= $user->role ?></i></br>
+        </div>
 <?php endforeach; ?>
-
+</div>
+</div>
 
 
 <hr>
-<h2>All orders</h2>
+<h2 class="admin-heading">Alla ordrar</h2>
+<div class="admin-orders-master">
 <?php foreach ($orders as $order) : ?>
-    <p>
-    <p>STATUS: </p> <?= $order->status ?>
-        <br><p>DATE: </p> <?= $order->order_date ?>
+
+    <div class="admin-orders-container">
+        <div class="admin-box">
+            <div class="admin-box-left">
+                <p>STATUS: </p> <?= $order->status ?>
+            </div>
+            <div class="admin-box-right">
+                <p>DATUM: </p> <?= $order->order_date ?>
+            </div>
+        </div>
+
+        <div class="admin-box">
+            <div class="admin-box-left">
+                <form action="/admin-scripts/post-update-order.php" method="post">
+                    <select name="Status">
+                        <option disabled selected>Status</option>
+                        <option value="waiting"> Väntande ..</option>
+                        <option value="sent"> Skickad</option>
+                    </select>
+                    <input type="submit" value="Spara">
+                </form>
+            </div>
+            <div class="admin-box-right">
+                <form action="/admin-scripts/post-delete-order.php" method="post">
+                    <input type="hidden" name="id" value="<?= $order->id ?>">
+                    <input type="submit" value="Radera order">
+                </form>
+            </div>
+        </div>
+    </div>
 
 
-    <form action="/admin-scripts/post-update-order.php" method="post">
-        <select name="Status">
-            <option disabled selected>Status</option>
-            <option value="waiting">Waiting</option>
-            <option value="sent">Sent</option>
-        </select><br>
-        <input type="submit" value="Save">
-    </form>
-
-
-    <form action="/admin-scripts/post-delete-order.php" method="post">
-        <input type="hidden" name="id" value="<?= $order->id ?>">
-        <input type="submit" value="Delete order"><br><hr>
-    </form>
 <?php endforeach; ?>
-
+</div>
 
 <?php
 
