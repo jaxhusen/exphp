@@ -1,6 +1,6 @@
 <?php
 
-class Database{
+class Db{
     private $host = "localhost";
     private $user = "root";
     private $pass = "root";
@@ -13,8 +13,8 @@ class Database{
         $this->conn = mysqli_connect($this->host, $this->user, $this->pass, $this->db);
         if(!$this->conn){
             die("Error connecting to db");
-        }else{
+        }/*  else{
             echo"connected successfully";
-        }
+        }  */
     }
 }

@@ -78,7 +78,7 @@ form{
 }
 
 
-/* fetch API index.php */
+/* ------------------- fetch API index.php ----------------  */
 .grid-container{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -113,7 +113,7 @@ form{
     color: var(--color-background-dark);
     border: 1px solid var(--color-primary);
     cursor: pointer;
-    border-radius: 5px;
+/*     border-radius: 5px; */
 }
 
 .box-btn:hover{
@@ -128,8 +128,100 @@ form{
     padding-bottom: 3%;
 }
 
-/* -------------------   --------------- */
 
+
+/* -------------------   --------------- */
+.form-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.form-login{
+    border: 1px solid var(--color-primary);
+    padding: 4%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    box-shadow: 0 0 40px var(--color-primary);
+    border-radius: 5px;
+    width: 30%;
+}
+
+input.form-input{
+    display: block;
+    width: 92%;
+    padding: 4%;
+    color: var(--color-background-dark);
+    border: 1px solid var(--color-background-dark);
+    transition: background 1s, border-color 1s;
+    background-color: var(--color-primary);
+    outline: none;
+    text-transform: uppercase;
+}
+
+
+.form-input:focus{
+    background-color: white;
+    border-color: var(--color-heading);
+}
+
+
+/*  animation för aktiv skriv fält i form */
+.login-user:active,
+.register-user:active,
+.user-regitration:active{
+    transform: scale(.8);
+}
+
+/*  class för btns container */
+.form-btns{
+    display: flex;
+    flex-direction: row;
+    white-space: no-wrap;
+    justify-content: space-between;
+}
+
+/* class för logga in btn och registrera btn */
+.login-user,
+.register-user{
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: var(--color-primary);
+    padding: 3%;
+    font-size: small;
+    color: rgba(110, 110, 110, 0.877);
+    border: 1px solid var(--color-background-dark);
+    cursor: pointer;
+    width: 44%;
+}
+
+.user-regitration{
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: var(--color-primary);
+    padding: 4%;
+    font-size: small;
+    color: rgba(110, 110, 110, 0.877);
+    border: 1px solid var(--color-background-dark);
+    cursor: pointer;
+    width: 100%;
+}
+
+.login-user{
+    margin-right: 1%;
+}
+
+/*  class för hovring över knapparna */
+.login-user:hover,
+.register-user:hover,
+.user-regitration:hover{
+    background-color: white;
+    transition: .5s;
+    color: var(--color-heading);
+    border-color: var(--color-heading);
+}
 
 
 
@@ -193,7 +285,7 @@ h3{
 }
 
 
-input[type=text],
+/* input[type=text],
 input[type=number],
 input[type=password],
 textarea,
@@ -212,12 +304,9 @@ input[type=file]{
     margin-top: 0px;
     padding: 5px 10px;
     font-size: 15px;
-}
+} */
 
-input[type=submit]{
-    padding: 5px 10px;
-    font-size: 15px;
-}
+
 
 /* ------------------- CART ------------------- */
 .show-product-details{

@@ -1,14 +1,13 @@
 <?php
 require_once __DIR__ . "/../classes/Template.php";
-require_once __DIR__ . "/../classes/ProductsDatabase.php";
-require_once __DIR__ . "/../classes/UsersDatabase.php";
-require_once __DIR__ . "/../classes/OrdersDatabase.php";
+require_once __DIR__ . "/../classes/ProductsDb.php";
+require_once __DIR__ . "/../classes/UsersDb.php";
+require_once __DIR__ . "/../classes/OrdersDb.php";
 
 //kontrollera att användaren är inloggad som admin
 $is_logged_in = isset($_SESSION["user"]);
 $logged_in_user = $is_logged_in ? $_SESSION["user"] : null;
 $is_admin = $is_logged_in && $logged_in_user->role == "admin";
-
 
 
 if (!$is_admin) { //om dom inte är admin
@@ -17,15 +16,15 @@ if (!$is_admin) { //om dom inte är admin
 }
 
 
-$users_db = new UsersDatabase();
+$users_db = new UsersDb();
 $users = $users_db->get_all();
 
 
-$products_db = new ProductsDatabase();
+$products_db = new ProductsDb();
 $products = $products_db->get_all();
 
 
-$orders_db = new OrdersDatabase();
+$orders_db = new OrdersDb();
 $orders = $orders_db->get_all();
 
 
@@ -35,7 +34,6 @@ Template::header("Admin area"); ?>
  <h2> Create product </h2>
 <form action="/admin-scripts/post-create-product.php" method="post" enctype="multipart/form-data">
     <input type="text" name="title" placeholder="Title"> <br>
-    <textarea name="description" placeholder="Description"></textarea> <br>
     <input type="number" name="price" placeholder="Price">
     <input type="file" name="image" accept="image/*"><br>
     <input type="submit" value="Save">
@@ -71,9 +69,6 @@ Template::header("Admin area"); ?>
     <p>STATUS: </p> <?= $order->status ?>
         <br><p>DATE: </p> <?= $order->order_date ?>
 
-       
-
-
 
     <form action="/admin-scripts/post-update-order.php" method="post">
         <select name="Status">
@@ -85,7 +80,6 @@ Template::header("Admin area"); ?>
     </form>
 
 
-
     <form action="/admin-scripts/post-delete-order.php" method="post">
         <input type="hidden" name="id" value="<?= $order->id ?>">
         <input type="submit" value="Delete order"><br><hr>
@@ -94,6 +88,7 @@ Template::header("Admin area"); ?>
 
 
 <?php
+
 Template::footer();
 
 ?>

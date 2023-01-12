@@ -1,8 +1,8 @@
 <?php
-require_once __DIR__ . "/../classes/UsersDatabase.php";
+require_once __DIR__ . "/../classes/UsersDb.php";
 
 if(isset($_POST["username"]) && isset($_POST["password"])){
-    $users_db = new UsersDatabase();
+    $users_db = new UsersDb();
     $user = $users_db->get_one_by_username($_POST["username"]);
 
 
@@ -11,7 +11,7 @@ if(isset($_POST["username"]) && isset($_POST["password"])){
         $_SESSION["user"] = $user;
         header("Location: /");
     }else{
-        header("Location: /pages/login.php?error=wrong-pass");
+        header("Location: /pages/login.php?error=wrong-user-or-pass");
         die();
     }
 

@@ -1,10 +1,10 @@
 <?php
 
-require_once __DIR__ . "/Database.php";
+require_once __DIR__ . "/Db.php";
 require_once __DIR__ . "/User.php";
 
 
-class UsersDatabase extends Database{
+class UsersDb extends Db{
 
     //get_one
     public function get_one_by_username($username)

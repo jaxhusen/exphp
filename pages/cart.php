@@ -27,7 +27,7 @@ Template::header("Varukorg"); ?>
 <?php if (count($products) > 0) : ?>
     <h3> Total: <?= $total_sum ?></h3>
     <?php if ($is_logged_in) : ?>
-        <form action="/scripts/post-place-order.php" method="post">
+        <form action="/../scripts/post-place-order.php" method="post">
             <input class="btn" type="submit" value="Place order">
         </form>
 
@@ -47,5 +47,8 @@ Template::header("Varukorg"); ?>
 <?php endif; ?>
 
 
-<?php Template::footer();
+<?php
+
+Template::footer();
+
 ?>

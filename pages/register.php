@@ -7,14 +7,16 @@ Template::header("Register user");
 ?>
 
 
-
-    <form action="/scripts/post-register-user.php" method="post">
-        <input type="text" name="username" placeholder="Username"><br>
-        <input type="password" name="password" placeholder="Password"><br>
-        <input type="password" name="confirm-password" placeholder="Confirm password"><br>
-        <input type="submit" value="Register">
+<div class="form-container">
+    <form class="form-login" action="/scripts/post-register-user.php" method="post">
+        <input class="form-input" type="text" name="username" autofocus placeholder="Username"><br>
+        <input class="form-input" type="password" name="password" autofocus placeholder="Password"><br>
+        <input class="form-input" type="password" name="confirm-password" autofocus placeholder="Confirm password"><br>
+        <div class="form-btns">
+            <input class="user-regitration" type="submit" value="Register">
+        </div>
     </form>
-
+    </div>
 
 <?php
 Template::footer();

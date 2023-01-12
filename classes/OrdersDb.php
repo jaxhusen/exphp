@@ -1,19 +1,16 @@
 <?php
 
-require_once __DIR__ . "/Database.php";
-
+require_once __DIR__ . "/Db.php";
 require_once __DIR__ . "/Order.php";
 
 
 
-class OrdersDatabase extends Database{
+class OrdersDb extends Db{
 
 //get_one
-
  public function get_one_by_userid($user_id){
-
     {
-        $query = "SELECT * FROM orders WHERE `user-id` = ?";
+        $query = "SELECT * FROM `order-users` WHERE `user-id` = ?";
         $stmt = mysqli_prepare($this->conn, $query);
         $stmt->bind_param("i", $user_id);
         $stmt->execute();
@@ -26,7 +23,6 @@ class OrdersDatabase extends Database{
                 $db_order["user-id"],
                 $db_order["status"],
                 $db_order["order-date"],
-                //$db_order["order-id"]
             );
             $orders[] = $order;
         }
@@ -40,7 +36,7 @@ class OrdersDatabase extends Database{
 
 //get_all
 public function get_all(){
-    $query = "SELECT * FROM orders";
+    $query = "SELECT * FROM `order-users`";
     $result = mysqli_query($this->conn, $query);
     $db_orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
     $orders = [];
@@ -60,7 +56,7 @@ public function get_all(){
     //create
     public function create(Order $order)
     {
-        $query = "INSERT INTO orders (`user-id`, `status`, `order-date`) VALUES (?,?,?)";
+        $query = "INSERT INTO `order-users` (`user-id`, `status`, `order-date`) VALUES (?,?,?)";
         $stmt = mysqli_prepare($this->conn, $query);
         $stmt->bind_param("iss", $order->user_id, $order->status, $order->order_date);
         $success = $stmt->execute();
@@ -89,7 +85,7 @@ public function get_all(){
 
     public function update_order_status($id, $status)
     {
-        $query = "UPDATE `orders` SET `status` = ? WHERE `orders`.`id` = ?";
+        $query = "UPDATE `order-users` SET `status` = ? WHERE `order-users`.`id` = ?";
         $stmt = mysqli_prepare($this->conn, $query);
         $stmt->bind_param("si", $status, $id);
         $success = $stmt->execute();
@@ -102,7 +98,7 @@ public function get_all(){
     //delete
     public function delete($id)
     {
-        $query = "DELETE FROM orders WHERE id = ?";
+        $query = "DELETE FROM `order-users` WHERE id = ?";
         $stmt = mysqli_prepare($this->conn, $query);
         $stmt->bind_param("i", $id);
         $success = $stmt->execute();

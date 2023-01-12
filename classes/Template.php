@@ -29,6 +29,7 @@ class Template
             <nav class="nav">
                 <a href="/">Startsida</a>
                 <a href="/pages/products.php">Produkter</a>
+                <a href="/pages/jsonproducts.php">json produkter</a>
                 <a href="/pages/cart.php">Varukorg(<?= $cart_count ?>)</a>
                 <?php if($is_logged_in) : ?>
                     <a href="/pages/orders.php"></i>Mina ordrar</a>
@@ -36,8 +37,6 @@ class Template
                 <?php if (!$is_logged_in) : ?>
                     <a href="/pages/login.php">Logga in</a>
                     <a href="/pages/register.php">Registrera</a>
-                    <!-- här ska php : else:
-                                        /pages/orders.php hamna-->
                 <?php elseif ($is_admin) : ?>
                     <a href="/../pages/admin.php">Admin sida</a>
                 <?php endif; ?>

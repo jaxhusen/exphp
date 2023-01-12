@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__ . "/../classes/User.php";
-require_once __DIR__ . "/../classes/UsersDatabase.php";
+require_once __DIR__ . "/../classes/UsersDb.php";
 $success = false;
 
 
@@ -14,7 +14,7 @@ if(
     strlen($_POST["username"]) > 0 &&
     strlen($_POST["password"]) > 0 &&
     $_POST["password"] === $_POST["confirm-password"]){
-        $users_db = new UsersDatabase();
+        $users_db = new UsersDb();
         $user = new User($_POST["username"], 'customer');
         $user->hash_password($_POST["password"]);
         $existing_user = $users_db->get_one_by_username($_POST["username"]);

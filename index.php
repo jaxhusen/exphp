@@ -11,11 +11,10 @@
 <?php // http://localhost:8888/
 require_once __DIR__ . "/classes/Template.php";
 
+
 Template::header("ARThusen_");
 ?>
 
-
-<h1>Arthusen_ </h1>
 
 
 <h2> Om oss: </h2>

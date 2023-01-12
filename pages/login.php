@@ -14,15 +14,16 @@ if(isset($_GET["error"]) && $_GET["error"] == "wrong_pass") : ?>
 <?php endif; ?>
 
 
-
-<form action="/scripts/post-login.php" method="post">
-    <input type="text" name="username" placeholder="Username"><br>
-    <input type="password" name="password" placeholder="Password"><br>
-    <input type="submit" value="Login">
+<div class="form-container">
+<form class="form-login" action="/scripts/post-login.php" method="post">
+    <input class="form-input" type="text" name="username" autofocus placeholder="Användarnamn"><br>
+    <input class="form-input" type="password" name="password" autofocus placeholder="Lösenord"><br>
+    <div class="form-btns">
+        <input class="login-user" type="submit" value="Logga in">
+        <a class="register-user" href="/./pages/register.php"> Registrera användare </a>
+    </div>
 </form>
-
-<a href="/./pages/register.php"> Registrera användare </a>
-
+</div>
 <?php
 
 Template::footer();

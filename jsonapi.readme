@@ -1,5 +1,3 @@
-//JSON products.php
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +17,7 @@ Template::header("Produkter");
 
 <h1>Arthusen_ </h1>
     <div class="grid-container"></div>
+    
 
 <script>
         /* https://www.youtube.com/watch?v=zUcc4vW-jsI */
@@ -32,8 +31,10 @@ Template::header("Produkter");
                     const productCard = `
                 <div class="grid-card">
                         <h2>${product.productName}</h2>
+                        <h4>${product.productDesc}</h4>
                         <h4 class="h4-pad">${product.productPrice} :-</h4>
-                        <img class="img" src="/assets/uploads/corre.jpg" alt="Corona">
+                        <h4>${product.productQtn}</h4>
+                        <img src="${product.productImg}" class="img">
                         <input class="box-btn" type="button" value="Lägg till i varukorg">
             </div>`
                     document.querySelector('.grid-container').insertAdjacentHTML('beforeend', productCard);
@@ -43,9 +44,17 @@ Template::header("Produkter");
     </script>
 
 
-</body>
-</html>
+<!--         <form action="/scripts/post-add-to-cart.php" method="post">
+            <input type="hidden" name="product-id" value="<?= $product->id ?>">
+            <input type="submit" value="Add to cart">
+        </form> -->
 
-<?php
+
+        <?php
 
 Template::footer();
+    ?>
+
+
+</body>
+</html>
