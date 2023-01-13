@@ -171,7 +171,8 @@ input.form-input{
 /*  animation för aktiv skriv fält i form */
 .login-user:active,
 .register-user:active,
-.user-regitration:active{
+.user-regitration:active,
+.admin-order-delete:active{
     transform: scale(.8);
 }
 
@@ -216,7 +217,8 @@ input.form-input{
 /*  class för hovring över knapparna */
 .login-user:hover,
 .register-user:hover,
-.user-regitration:hover{
+.user-regitration:hover,
+.admin-order-delete:hover{
     background-color: white;
     transition: .5s;
     color: var(--color-heading);
@@ -250,6 +252,7 @@ input.form-input{
 .users-role{
     font-size: 20px;
     text-transform: uppercase;
+    white-space: nowrap;
 }
 
 .users-name{
@@ -280,7 +283,7 @@ input.form-input{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .admin-box-left{
@@ -291,6 +294,7 @@ input.form-input{
 .admin-box-right{
     display: flex;
     flex-direction: row;
+    white-space: nowrap;
 }
 
 .admin-heading{
@@ -298,27 +302,33 @@ input.form-input{
     margin-left: 2%;
 }
 
-
-
-
-
-/* .form-container{
+.row{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    flex-direction: row;
+    white-space: nowrap;
+
+    width: 100%;
 }
 
-.form-login{
-    border: 1px solid var(--color-primary);
-    padding: 4%;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    box-shadow: 0 0 40px var(--color-primary);
-    border-radius: 5px;
-    width: 30%;
-} */
+.users-order{
+    color: var(--color-heading);
+    padding-top: 2%;
+    padding-left: 5%;
+}
+
+
+
+.admin-order-delete{
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: var(--color-primary);
+    padding: 5%;
+    font-size: small;
+    color: rgba(110, 110, 110, 0.877);
+    border: 1px solid var(--color-background-dark);
+    cursor: pointer;
+    margin-left: -10%;
+}
 
 
 

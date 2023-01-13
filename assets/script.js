@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 async function onClickProductDetails(e){
     const id = this.dataset.id;
 
-    const response = await fetch(`/api/get-product.php?id=${id}`);
+    const response = await fetch(`/products.json?id=${id}`);
     const product = await response.json();
 
     const productDetailsContainer = document.getElementById("product-details");
@@ -18,6 +18,7 @@ async function onClickProductDetails(e){
 
     document.getElementById("product-img").src = product.img_url;
     document.getElementById("product-title").innerText = product.title;
-    document.getElementById("product-description").innerText = product.description;
     document.getElementById("product-price").innerText = product.price + " kr";
 }; 
+
+

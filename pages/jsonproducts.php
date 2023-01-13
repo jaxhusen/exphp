@@ -33,12 +33,13 @@ Template::header("Produkter");
                         <h2>${product.productName}</h2>
                         <h4 class="h4-pad">${product.productPrice} :-</h4>
                         <h4> I lager: ${product.productQtn}</h4>
-                        <img src="${product.productImg}" class="img">
-                        <input class="box-btn" type="button" value="Lägg till i varukorg">
-            </div>`
+                        <img src="${product.productImg}" alt="Bild" class="img">
+                        <input class="box-btn" type="button" value="Lägg till i varukorg"> 
+                    </div>`
                     document.querySelector('.grid-container').insertAdjacentHTML('beforeend', productCard);
                 });
             })
+            
             .catch(error => console.log(error));
     </script>
 

@@ -8,23 +8,23 @@ $products_db = new ProductsDb();
 $products = $products_db->get_all();
 
 Template::header("Products");
+?>
 
-foreach ($products as $product) : ?>
-    <div class="product">
-        <img src="<?= $product->img_url ?>" alt="Product image" class="miniature-pic-products">
-        <div class="description-for-pic-products">
-            <b><?= $product->title ?> </b><br>
-            <i><?= $product->price ?> kr </i><br>
-            <?= $product->description ?>
+<div class="grid-container"> 
+<?php foreach ($products as $product) : ?>
+    <div class="grid-card">
+        <h2><?= $product->title ?></h2>
+        <h4 class="h4-pad"><i><?= $product->price ?> :-</i></h4>
+        <img src="<?= $product->img_url ?>" alt="Product image" class="img">
 
         <form action="/scripts/post-add-to-cart.php" method="post">
             <input type="hidden" name="product-id" value="<?= $product->id ?>">
-            <input type="submit" value="Add to cart">
+            <input class="box-btn" type="submit" value="Lägg till i varukorg">
         </form>
-</div>
     </div>
 
 <?php
-endforeach;
-
-Template::footer();
+endforeach; ?>
+</div>
+<?php
+Template::footer();?>

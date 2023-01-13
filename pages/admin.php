@@ -81,28 +81,29 @@ Template::header("Admin sida"); ?>
     <div class="admin-orders-container">
         <div class="admin-box">
             <div class="admin-box-left">
-                <p>STATUS: </p> <?= $order->status ?>
+                <p class="users-role">STATUS -</p> <i class="users-order"> <?= $order->status ?> </i></br>
             </div>
             <div class="admin-box-right">
-                <p>DATUM: </p> <?= $order->order_date ?>
+                <p class="users-role">DATUM: </p><i class="users-order">  <?= $order->order_date ?>  </i></br>
             </div>
         </div>
 
         <div class="admin-box">
             <div class="admin-box-left">
-                <form action="/admin-scripts/post-update-order.php" method="post">
+                <form class="row" action="/admin-scripts/post-update-order.php" method="post">
                     <select name="Status">
                         <option disabled selected>Status</option>
                         <option value="waiting"> Väntande ..</option>
                         <option value="sent"> Skickad</option>
                     </select>
-                    <input type="submit" value="Spara">
+                    <input class="user-regitration" type="submit" value="Spara">
                 </form>
             </div>
+            
             <div class="admin-box-right">
                 <form action="/admin-scripts/post-delete-order.php" method="post">
                     <input type="hidden" name="id" value="<?= $order->id ?>">
-                    <input type="submit" value="Radera order">
+                    <input class="admin-order-delete" type="submit" value="Radera order">
                 </form>
             </div>
         </div>

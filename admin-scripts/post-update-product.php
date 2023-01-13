@@ -6,7 +6,7 @@ require_once __DIR__ . "/force-admin.php";
 $success = false;
 
 
-if (isset($_POST["title"]) && isset($_POST["description"]) && isset($_POST["price"]) && isset($_GET["id"])) {
+if (isset($_POST["title"])  && isset($_POST["price"]) && isset($_GET["id"])) {
     $upload_directory = __DIR__ . "/../assets/uploads/";
     $upload_name = basename($_FILES["image"]["name"]); // katt.jpeg
     $name_parts = explode(".", $upload_name); // ["katt", "jpeg"]
@@ -19,7 +19,7 @@ if (isset($_POST["title"]) && isset($_POST["description"]) && isset($_POST["pric
 
 
     if ($success) {
-        $product = new Product($_POST["title"], $_POST["description"], $_POST["price"], $full_relative_url);
+        $product = new Product($_POST["title"], $_POST["price"], $full_relative_url);
         $products_db = new ProductsDb();
         $success = $products_db->update($product, $_GET["id"]);
     }
