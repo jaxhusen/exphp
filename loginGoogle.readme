@@ -1,0 +1,39 @@
+
+
+
+
+<!-- https://www.youtube.com/watch?v=HIMGOHtsEkQ -->
+
+<?php
+require_once 'vendor/autoload.php'
+$clientId = '612395601619-7nrvq1cga6om0ntjts0q2rovdom8o9en.apps.googleusercontent.com';
+$clientSecret = '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';
+$redirectUrl = 'http://localhost:8888/pages/login.php';
+
+//create client request to google
+$client = new Google_Client();
+$client->setClientId($clientID);
+$client->setClientSecret($clientSecret);
+$client->setRedirectUri($redirectUrl);
+$client->addScope('profile');
+$client->addScope('email');
+
+if(isset($_GET['code'])){
+    $token=$client->fetchAccessTokenWithAuthCode($_GET['code']);
+    $client->setAccessToken($token);
+
+    //getting user profile
+    $google = new Google_Service_Oauth2($client);
+    $google_info = $google->userinfo->get();
+    $email = $google_info->email;
+    $name = $google_info->name;
+
+    echo "welcome " .$name. "du är registrerad med" .$email;
+}else{
+    echo "<a href=.'"$client->createGoogleUrl()."'>Logga in med google</a>"
+
+}
+
+
+
+?>

@@ -17,12 +17,10 @@ class UsersDb extends Db{
         $db_user = mysqli_fetch_assoc($result);
         $user = null;
 
-
         if ($db_user) {
             $user = new User($db_user["username"], $db_user["role"], $db_user["id"]);
             $user->set_password_hash($db_user["password-hash"]);
         }
-
         return $user;
     }
 
@@ -39,11 +37,11 @@ class UsersDb extends Db{
             $db_id = $db_user["id"];
             $db_username = $db_user["username"];
             $db_role = $db_user["role"];
+
             $user = new User($db_username, $db_role, $db_id);
             $user->set_password_hash($db_user["password-hash"]);
+
             $users[] = $user;
-
-
         }
         return $users;
     }
@@ -62,7 +60,7 @@ class UsersDb extends Db{
 
     // update
     public function update(User $id){
-        $query = "UPDATE users SET `role`=? WHERE id=?";
+        $query = "UPDATE users SET `role` = ? WHERE id = ?";
         $stmt = mysqli_prepare($this->conn, $query);
         $stmt->bind_param("ss", $id->role, $id->username);
         return $stmt->execute();

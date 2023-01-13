@@ -2,7 +2,7 @@
 require_once __DIR__ . "/../classes/ProductsDb.php";
 require_once __DIR__ . "/force-admin.php";
 
-session_start();
+/* session_start(); */
 $success = false;
 
 

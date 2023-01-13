@@ -303,12 +303,15 @@ input.form-input{
     margin-left: 2%;
 }
 
-.row{
+.admin-sub-heading{
+    text-align: center;
+}
+
+.admin-users-container{
     display: flex;
     flex-direction: row;
-    white-space: nowrap;
-
-    width: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
 .users-order{
@@ -331,10 +334,36 @@ input.form-input{
     margin-left: -10%;
 }
 
+.one{
+    width: 45%;
+}
 
+.row{
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    width: 100%;
+}
 
+.admin-update{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
 
-
+.admin-update-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid var(--color-primary);
+    padding: 4%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    box-shadow: 0 0 40px var(--color-primary);
+    border-radius: 5px;
+    width: 30%;
+}
 
 
 

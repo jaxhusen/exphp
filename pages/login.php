@@ -24,6 +24,8 @@ if(isset($_GET["error"]) && $_GET["error"] == "wrong_pass") : ?>
     </div>
 </form>
 </div>
+
+
 <?php
 
 Template::footer();

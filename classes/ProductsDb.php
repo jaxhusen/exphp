@@ -48,9 +48,9 @@ class ProductsDb extends Db
     //create
     public function create(Product $product)
     {
-        $query = "INSERT INTO products (title, price, `img-url`) VALUES (?,?,?,?)";
+        $query = "INSERT INTO products (title, price, `img-url`) VALUES (?,?,?)";
         $stmt = mysqli_prepare($this->conn, $query);
-        $stmt->bind_param("ssis", $product->title, $product->price, $product->img_url);
+        $stmt->bind_param("sis", $product->title, $product->price, $product->img_url);
         $success = $stmt->execute();
 
         return $success;
@@ -58,17 +58,10 @@ class ProductsDb extends Db
 
 
     //update
-    public function update(Product $product, $id)
-    {
-        $query = "UPDATE products SET title=?, price=?, `img-url`=? WHERE id=?";
+    public function update (Product $product, $id){
+        $query = "UPDATE products SET `title` = ?, price = ?, `img-url` = ? WHERE id = ?";
         $stmt = mysqli_prepare($this->conn, $query);
-        $stmt->bind_param(
-            "ssisi",
-            $product->title,
-            $product->price,
-            $product->img_url,
-            $id
-        );
+        $stmt->bind_param("sisi", $product->title, $product->price, $product->img_url, $id);
         return $stmt->execute();
     }
 
@@ -97,7 +90,7 @@ class ProductsDb extends Db
             os.`order-date`,
             os.`status`
             FROM `order-products` AS op
-        JOIN `order-users` AS os ON op.`order-id` = o.id
+        JOIN `order-users` AS os ON op.`order-id` = os.id
         JOIN users AS u ON os.`user-id` = u.id
         JOIN products AS p ON op.`product-id` = p.id
         WHERE op.`order-id` = ?";

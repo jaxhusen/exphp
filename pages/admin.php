@@ -65,7 +65,7 @@ Template::header("Admin sida"); ?>
         <div class="admin-users-box">
 <?php foreach ($users as $user) : ?>
 <div class="admin-user-card">
-            <a class="users-name" href="/pages/admin-user.php?username=<?= $user->id ?>"><?= $user->username ?></a>
+            <a class="users-name" href="/pages/admin-user.php?username=<?= $user->username ?>"><?= $user->username ?></a>
         <i class="users-role">- <?= $user->role ?></i></br>
         </div>
 <?php endforeach; ?>

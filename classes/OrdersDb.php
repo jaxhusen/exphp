@@ -12,8 +12,8 @@ class OrdersDb extends Db{
     {
         $query = "SELECT op.id, op.`order-id`, u.username, os.`user-id`, os.`order-date`, os.`status` 
         FROM `order-products` AS op
-        JOIN `order-users` AS os ON op.`order-id` = o.id 
-        JOIN users AS u ON os.`customer-id` = u.id
+        JOIN `order-users` AS os ON op.`order-id` = os.id 
+        JOIN users AS u ON os.`user-id` = u.id
         WHERE os.`user-id` = ?
         group by  op.`order-id`";
 
@@ -105,6 +105,7 @@ public function get_all(){
 
         return $success;
     }
+
 
 
 
