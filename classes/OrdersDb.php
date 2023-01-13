@@ -10,7 +10,14 @@ class OrdersDb extends Db{
 //get_one
  public function get_one_by_userid($user_id){
     {
-        $query = "SELECT * FROM `order-users` WHERE `user-id` = ?";
+        $query = "SELECT op.id, op.`order-id`, u.username, os.`user-id`, os.`order-date`, os.`status` 
+        FROM `order-products` AS op
+        JOIN `order-users` AS os ON op.`order-id` = o.id 
+        JOIN users AS u ON os.`customer-id` = u.id
+        WHERE os.`user-id` = ?
+        group by  op.`order-id`";
+
+
         $stmt = mysqli_prepare($this->conn, $query);
         $stmt->bind_param("i", $user_id);
         $stmt->execute();
@@ -23,6 +30,7 @@ class OrdersDb extends Db{
                 $db_order["user-id"],
                 $db_order["status"],
                 $db_order["order-date"],
+                $db_order["order-id"]
             );
             $orders[] = $order;
         }
@@ -33,25 +41,30 @@ class OrdersDb extends Db{
 
 
 
-
 //get_all
 public function get_all(){
     $query = "SELECT * FROM `order-users`";
-    $result = mysqli_query($this->conn, $query);
+    $stmt = mysqli_prepare($this->conn, $query);
+    $stmt->execute();
+    $result = $stmt->get_result();
     $db_orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
     $orders = [];
 
-
-
-    foreach ($db_orders as $db_order){
-        $db_id = $db_order["id"];
-        $db_status = $db_order["status"];
-        $db_order_date = $db_order["order-date"];
-
-        $orders[] = new Order($db_id, $db_status, $db_order_date);
+    foreach ($db_orders as $db_order) {
+        $orders[] = new Order(
+            $db_order["user-id"],
+            $db_order["status"],
+            $db_order["order-date"],
+            $db_order["id"]
+        );
     }
     return $orders;
 }
+
+
+
+
 
     //create
     public function create(Order $order)
@@ -85,7 +98,7 @@ public function get_all(){
 
     public function update_order_status($id, $status)
     {
-        $query = "UPDATE `order-users` SET `status` = ? WHERE `order-users`.`id` = ?";
+        $query = "UPDATE `order-users` SET `status` = ? WHERE `id` = ?";
         $stmt = mysqli_prepare($this->conn, $query);
         $stmt->bind_param("si", $status, $id);
         $success = $stmt->execute();

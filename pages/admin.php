@@ -81,15 +81,17 @@ Template::header("Admin sida"); ?>
     <div class="admin-orders-container">
         <div class="admin-box">
             <div class="admin-box-left">
-                <p class="users-role">STATUS -</p> <i class="users-order"> <?= $order->status ?> </i></br>
+                <p class="users-role">USER ID -</p> <i class="users-order"> <?= $order->user_id ?> </i></br>
+                <p class="users-role">ORDER ID -</p> <i class="users-order"> <?= $order->id ?> </i></br>
             </div>
-            <div class="admin-box-right">
+            <div class="admin-box-left">
+            <p class="users-role">STATUS -</p> <i class="users-order"> <?= $order->status ?> </i></br>
                 <p class="users-role">DATUM: </p><i class="users-order">  <?= $order->order_date ?>  </i></br>
             </div>
         </div>
 
         <div class="admin-box">
-            <div class="admin-box-left">
+            <div class="admin-box-right">
                 <form class="row" action="/admin-scripts/post-update-order.php" method="post">
                     <select name="Status">
                         <option disabled selected>Status</option>

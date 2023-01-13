@@ -4,15 +4,18 @@ require_once __DIR__ . "/../classes/OrdersDb.php";
 require_once __DIR__ . "/../classes/UsersDb.php";
 require_once __DIR__ . "/../classes/ProductsDb.php";
 
-//$logged_in_user = $_SESSION["user"];
 $is_logged_in = isset($_SESSION['user']);
 $logged_in_user = $is_logged_in ? $_SESSION['user'] : null;
 
-Template::header("Mina ordrar");
+Template::header("Order page");
 
-
+echo"hejhej före ";
 $orders_db = new OrdersDb();
+echo" hejhej mellan ";
 $orders = $orders_db->get_one_by_userid($logged_in_user->id);
+
+echo" hejhej efter ";
+
 
 
 $products_db = new ProductsDb();
@@ -33,13 +36,13 @@ if (!$is_logged_in) : ?>
 <?php foreach ($orders as $order) : ?>
     <hr><br>
     <p>
-        <b><p>USERID: </p></b><?=$order->user_id?>
+        <b><p>USERID: </p></b><?=$order->id?>
         <b><p>STATUS: </p></b><?= $order->status ?>
         <b><p>DATE: </p></b><?= $order->order_date?>
     </p>
 
 
-    <?php $products = $products_db->get_by_order_id($order->id);
+    <?php $products = $products_db->get_by_orderid($order->id);
 
     
 foreach ($products as $product) {

@@ -85,7 +85,7 @@ class ProductsDb extends Db
     }
 
 
-    public function get_by_order_id($id)
+    public function get_by_orderid($order_id)
     {
         $query = "SELECT op.id,
             op.`order-id`,
@@ -93,19 +93,19 @@ class ProductsDb extends Db
             p.`title`,
             p.price,
             p.`img-url`,
-            o.`user-id`,
-            o.`order-date`,
-            o.`status`
-            FROM `order-products` AS po
-        JOIN orders AS o ON op.`order-id` = o.id
-        JOIN users AS u ON o.`user-id` = u.id
-        JOIN products AS p ON op.`id` = p.id
+            os.`user-id`,
+            os.`order-date`,
+            os.`status`
+            FROM `order-products` AS op
+        JOIN `order-users` AS os ON op.`order-id` = o.id
+        JOIN users AS u ON os.`user-id` = u.id
+        JOIN products AS p ON op.`product-id` = p.id
         WHERE op.`order-id` = ?";
 
 
 
         $stmt = mysqli_prepare($this->conn, $query);
-        $stmt->bind_param("i", $id);
+        $stmt->bind_param("i", $order_id);
         $stmt->execute();
         $result = $stmt->get_result();
 
