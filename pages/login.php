@@ -1,17 +1,17 @@
 <?php
-
 require_once __DIR__ . "/../classes/Template.php";
-Template::header("Login");
 
+
+Template::header("Logga in");
 
 if(isset($_GET["register"]) && $_GET["register"] == "success"){
     echo "<h2> User registered, log in </h2>";
 }
 
 if(isset($_GET["error"]) && $_GET["error"] == "wrong_pass") : ?>
-
 <h2>Wrong username or password! </h2>
 <?php endif; ?>
+
 
 
 <div class="form-container">
@@ -27,7 +27,5 @@ if(isset($_GET["error"]) && $_GET["error"] == "wrong_pass") : ?>
 
 
 <?php
-
 Template::footer();
-
 ?>

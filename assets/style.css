@@ -180,7 +180,7 @@ input.form-input{
 .form-btns{
     display: flex;
     flex-direction: row;
-    white-space: no-wrap;
+/*     white-space: no-wrap; */
     justify-content: space-between;
 }
 
