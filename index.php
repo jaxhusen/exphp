@@ -10,11 +10,9 @@
 
 <?php // http://localhost:8888/
 require_once __DIR__ . "/classes/Template.php";
-require_once(dirname(__FILE__) . "/config.php"); 
 
 Template::header("ARThusen_");
 ?>
-
 <h2> Om oss: </h2>
     <div>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit.
