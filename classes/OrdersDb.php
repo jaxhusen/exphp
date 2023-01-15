@@ -95,16 +95,16 @@ public function get_all(){
 
 
 
+//update status
+public function update_order_status($id, $status)
+  {
+      $query = "UPDATE `order-users` SET `status` = ? WHERE `id` = ?";
+      $stmt = mysqli_prepare($this->conn, $query);
+      $stmt->bind_param("si", $status, $id);
+      $success = $stmt->execute();
 
-    public function update_order_status($id, $status)
-    {
-        $query = "UPDATE `order-users` SET `status` = ? WHERE `id` = ?";
-        $stmt = mysqli_prepare($this->conn, $query);
-        $stmt->bind_param("si", $status, $id);
-        $success = $stmt->execute();
-
-        return $success;
-    }
+      return $success;
+  }
 
 
 

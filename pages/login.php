@@ -1,8 +1,10 @@
 <?php
 require_once __DIR__ . "/../classes/Template.php";
-
+require_once __DIR__ . "/../classes/UsersDb.php";
 
 Template::header("Logga in");
+
+
 
 if(isset($_GET["register"]) && $_GET["register"] == "success"){
     echo "<h2> User registered, log in </h2>";

@@ -58,11 +58,11 @@ class UsersDb extends Db{
     }
 
 
-    // update
-    public function update(User $id){
-        $query = "UPDATE users SET `role` = ? WHERE id = ?";
+    // update role
+    public function update(User $user){
+        $query = "UPDATE users SET `role`=? WHERE username=?";
         $stmt = mysqli_prepare($this->conn, $query);
-        $stmt->bind_param("ss", $id->role, $id->username);
+        $stmt->bind_param("ss", $user->role, $user->username);
         return $stmt->execute();
     }
 

@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . "./User.php";
-
+session_start();
 
 
 class Template
@@ -43,7 +43,6 @@ class Template
             </nav>
 
 
-
             <main>
                 <?php if ($is_logged_in) : ?>
                     <p class="logged-in-box">
@@ -55,9 +54,6 @@ class Template
                     </p>
                 <?php endif; ?>
             </main>
-
-
-
 
 
         <?php }

@@ -85,23 +85,27 @@ Template::header("Admin sida"); ?>
                 <p class="users-role">ORDER ID -</p> <i class="users-order"> <?= $order->id ?> </i></br>
             </div>
             <div class="admin-box-left">
-            <p class="users-role">STATUS -</p> <i class="users-order"> <?= $order->status ?> </i></br>
+                <p class="users-role">STATUS -</p> <i class="users-order"> <?= $order->status ?> </i></br>
                 <p class="users-role">DATUM: </p><i class="users-order">  <?= $order->order_date ?>  </i></br>
             </div>
         </div>
 
         <div class="admin-box">
             <div class="admin-box-right">
-                <form class="row" action="/admin-scripts/post-update-order.php" method="post">
-                    <select name="Status">
-                        <option disabled selected>Status</option>
-                        <option value="waiting"> Väntande ..</option>
-                        <option value="sent"> Skickad</option>
-                    </select>
-                    <input class="user-regitration" type="submit" value="Spara">
-                </form>
+            <form action="/admin-scripts/post-update-order.php" method="post" class="row">
+                <input type="hidden" name="id" value="<?= $order->id ?>">
+                <select name="status">
+                    <option disabled selected>Status</option>
+                    <option value="waiting">Väntande ..</option>
+                    <option value="Sent">Skickad</option>
+                </select>
+                <input type="submit" value="Spara" class="user-regitration">
+            </form>
             </div>
             
+
+
+
             <div class="admin-box-right">
                 <form action="/admin-scripts/post-delete-order.php" method="post">
                     <input type="hidden" name="id" value="<?= $order->id ?>">

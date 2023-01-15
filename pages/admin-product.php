@@ -32,10 +32,11 @@ if ($product == null) : ?>
 
 
     <form action="/admin-scripts/post-update-product.php?id=<?= $_GET["id"] ?>" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="<?= $_GET["id"] ?>">
         <input type="text" name="product-name" placeholder="Name" value="<?= $product->title ?>"> <br>
         <input type="number" name="price" placeholder="Price" value="<?= $product->price ?>"> <br>
         <input type="file" name="image" accept="image/*"> <br>
-        <input type="submit" value="Save">
+        <input type="submit" value="Spara">
     </form>
 
 

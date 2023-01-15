@@ -1,5 +1,6 @@
 <?php
 /* https://www.youtube.com/watch?v=M4jde7THXAI */
+require_once '/../classes/Database.php';
 require_once 'vendor/autoload.php'; 
 require_once "google-api/vendor/autoload.php";
 session_start();
@@ -15,12 +16,5 @@ $client->setApplicationName("Arthusen");
 $client->setRedirectUri($redirectUri);
 $client->addScope("https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email");
 
-//connect to db
-$hostname = "localhost";
-$username = "root";
-$password = "root";
-$database = "orderinfo-db";
-
-$conn = mysqli_connect($hostname, $username, $password, $database)
 
 ?>

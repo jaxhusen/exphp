@@ -1,5 +1,4 @@
 <?php
-require_once(dirname(__FILE__) . "/../config.php");  
 require_once __DIR__ . "/../classes/Template.php";
 
 
@@ -14,14 +13,6 @@ Template::header("Register user");
         <input class="form-input" type="password" name="confirm-password" autofocus placeholder="Confirm password"><br>
         <div class="form-btns">
             <input class="user-regitration" type="submit" value="Register">
-            <?php
-
-           if(isset($_SESSION['user_token'])){
-                header("Location: /login.php");
-            }else{
-            echo "<a href='" . $client->createAuthUrl() . "'> Google login</a>";
-            } 
-            ?>
         </div>
     </form>
     </div>

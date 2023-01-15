@@ -2,8 +2,9 @@
 require_once './config.php'; 
 require_once './vendor/autoload.php'; 
 
-
 //authentizise code from oauth google
+//https://www.youtube.com/watch?v=QND1z0KyiWU <- testa kolla den
+
 if(isset($_GET['code'])){
     $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
     $client->setAccessToken($token['access_token']);
