@@ -28,11 +28,11 @@ if (!$is_logged_in) : ?>
 <hr><br>
 
 
-
+<div class="admin-content-center">
 <?php foreach ($orders as $order) : ?>
 
     <div class="admin-orders-container">
-    <div class="admin-box">
+    <div class="admin-box" style="min-width: 600px">
         <div class="admin-box-left">
             <p class="users-role">Användar ID - <i class="users-order"><?=$order->user_id?></i></p></br>
             <p class="users-role">Beställnings ID - <i class="users-order"><?=$order->id?></i></p></br>
@@ -42,6 +42,7 @@ if (!$is_logged_in) : ?>
             <p class="users-role">DATUM: <i class="users-order"><?= $order->order_date?> </i></p></br>
         </div>
     </div>
+
 
     
 
@@ -60,7 +61,6 @@ if (!$is_logged_in) : ?>
     <div class="admin-box" style="padding: 5%;">
     <div class="admin-box-right">
         <p class="users-order"><?= $product->title ?></i></p>
-        <i class="users-order"><?= $product->price ?>kr </i>
     </div>
     <div class="admin-box-right">
         <img src="<?= $product->img_url ?>" width="50" height="50" alt="Produkt bild">
@@ -76,7 +76,7 @@ if (!$is_logged_in) : ?>
     </div>
 
 <?php endforeach; ?>
-
+</div>
 
 
 <?php $products = $products_db->get_by_orderid($logged_in_user->id);?>

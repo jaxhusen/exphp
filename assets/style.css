@@ -308,6 +308,11 @@ input.form-input{
     text-align: center;
 }
 
+.admin-content-center{
+    display: flex;
+    justify-content: center;
+}
+
 .admin-users-container{
     display: flex;
     flex-direction: row;

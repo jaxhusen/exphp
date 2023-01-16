@@ -25,10 +25,12 @@ Template::header("Varukorg"); ?>
 
 <?php endforeach; ?>
 <?php if (count($products) > 0) : ?>
-    <h3> Total: <?= $total_sum ?></h3>
     <?php if ($is_logged_in) : ?>
         <form action="/../scripts/post-place-order.php" method="post">
-            <input class="btn" type="submit" value="Place order">
+        <div class="form-btns" style="width:20%; height: 70px;">
+            <input class="register-user" style="margin-left: 10%" type="submit" value="Lägg beställning">
+            <h3 class="admin-heading" style="margin-top: -2%;"> Total: <?= $total_sum ?>:- </h3>
+    </div>
         </form>
 
     <?php else : ?>
