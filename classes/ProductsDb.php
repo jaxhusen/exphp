@@ -5,8 +5,7 @@ require_once __DIR__ . "/Product.php";
 class ProductsDb extends Db
 {
     //get_one
-    public function get_one($id)
-    {
+    public function get_one($id){
         $query = "SELECT * FROM products WHERE id = ?";
         $stmt = mysqli_prepare($this->conn, $query);
         $stmt->bind_param("i", $id);
@@ -15,7 +14,8 @@ class ProductsDb extends Db
         $db_product = mysqli_fetch_assoc($result);
         $product = null;
 
-        if ($db_product) {
+
+        if($db_product){
             $product = new Product(
                 $db_product["title"],
                 $db_product["price"],
@@ -23,7 +23,7 @@ class ProductsDb extends Db
                 $id
             );
         }
-        return $product;
+            return $product;
     }
 
     //get_all
@@ -59,7 +59,7 @@ class ProductsDb extends Db
 
     //update
     public function update (Product $product, $id){
-        $query = "UPDATE products SET `title` = ?, price = ?, `img-url` = ? WHERE id = ?";
+        $query = "UPDATE products SET `title` = ?, price = ?,`img-url` = ? WHERE id = ?";
         $stmt = mysqli_prepare($this->conn, $query);
         $stmt->bind_param("sisi", $product->title, $product->price, $product->img_url, $id);
         return $stmt->execute();

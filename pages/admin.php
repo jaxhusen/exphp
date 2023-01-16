@@ -30,8 +30,8 @@ $orders = $orders_db->get_all();
 
 Template::header("Admin sida"); ?>
 
-
  <h2 class="admin-heading"> Skapa produkt </h2>
+ <hr>
  <div class="form-container">
 <form class="form-login" action="/admin-scripts/post-create-product.php" method="post" enctype="multipart/form-data">
     <input class="form-input" type="text" name="title" placeholder="Titel"> <br>
@@ -42,51 +42,62 @@ Template::header("Admin sida"); ?>
     </div>
 </form> 
 </div>
-<hr>
+
 
 <h2 class="admin-heading"> Produkter </h2>
+<hr>
 <div class="admin-users">
         <div class="admin-users-box">
 <?php foreach ($products as $product) : ?>
-    <div class="admin-user-card">
-        <a class="users-name" href="/pages/admin-product.php?id=<?= $product->id ?>">
-            <?= $product->title ?></a> 
-            <i class="users-role"> - <?= $product->price ?> SEK</i></br>
+        <div class="admin-user-card row-space-between">
+            <div class="text-left-admin-products">
+                <a class="users-name" href="/pages/admin-product.php?id=<?= $product->id ?>">
+                <?= $product->title ?></a> 
+                <i class="users-role"> - <?= $product->price ?> SEK</i></br>
+            </div>
+            <div class="pic-right-admin-products">
+                <img src="<?= $product->img_url ?>" height="70px" width="70px"></i></br>
+            </div>
         </div>
 <?php endforeach; ?>
 </div>
 </div>
-
-<hr>
 
 
 <h2 class="admin-heading"> Användare </h2>
+<hr>
 <div class="admin-users">
         <div class="admin-users-box">
 <?php foreach ($users as $user) : ?>
-<div class="admin-user-card">
+<div class="admin-user-card row-space-between">
+<div class="text-left-admin-products">
             <a class="users-name" href="/pages/admin-user.php?username=<?= $user->username ?>"><?= $user->username ?></a>
         <i class="users-role">- <?= $user->role ?></i></br>
+</div>
+<div class="pic-right-admin-products">
+                <img src="<?= $user->img_url ?>" height="70px" width="70px"></i></br>
+            </div>
         </div>
 <?php endforeach; ?>
 </div>
 </div>
 
 
-<hr>
+
 <h2 class="admin-heading">Alla ordrar</h2>
+<hr>
 <div class="admin-orders-master">
 <?php foreach ($orders as $order) : ?>
 
     <div class="admin-orders-container">
         <div class="admin-box">
             <div class="admin-box-left">
-                <p class="users-role">USER ID -</p> <i class="users-order"> <?= $order->user_id ?> </i></br>
-                <p class="users-role">ORDER ID -</p> <i class="users-order"> <?= $order->id ?> </i></br>
+                <p class="users-role">Användar ID - <i class="users-order"> <?= $order->user_id ?> </i></p></br>
+                <p class="users-role">Beställnings ID - <i class="users-order"> <?= $order->id ?> </i></p></br>
             </div>
             <div class="admin-box-left">
-                <p class="users-role">STATUS -</p> <i class="users-order"> <?= $order->status ?> </i></br>
-                <p class="users-role">DATUM: </p><i class="users-order">  <?= $order->order_date ?>  </i></br>
+                <p class="users-role">STATUS - <i class="users-order"> <?= $order->status ?> </i></p></br>
+                <p class="users-role">DATUM: <i class="users-order">  <?= $order->order_date ?>  </i></p></br>
             </div>
         </div>
 

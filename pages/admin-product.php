@@ -13,11 +13,9 @@ if (!$is_admin) {
     die("Access denied");
 }
 
-
 if (!isset($_GET["id"])) {
     die("Invalid input");
 }
-
 
 $products_db = new ProductsDb();
 $product = $products_db->get_one($_GET["id"]);
@@ -26,28 +24,27 @@ $product = $products_db->get_one($_GET["id"]);
 Template::header("Update product");
 
 
+
 if ($product == null) : ?>
-    <h2>No product</h2>
+    <h2 class="admin-heading">Inga produkter</h2>
+
 <?php else : ?>
-
-
-    <form action="/admin-scripts/post-update-product.php?id=<?= $_GET["id"] ?>" method="post" enctype="multipart/form-data">
-    <input type="hidden" name="id" value="<?= $_GET["id"] ?>">
-        <input type="text" name="product-name" placeholder="Name" value="<?= $product->title ?>"> <br>
-        <input type="number" name="price" placeholder="Price" value="<?= $product->price ?>"> <br>
-        <input type="file" name="image" accept="image/*"> <br>
-        <input type="submit" value="Spara">
+    <h2 class="admin-heading">Uppdatera:</h2>
+    <div class="form-container">
+    <form action="/admin-scripts/post-update-product.php?id=<?= $_GET["id"] ?>" method="post" enctype="multipart/form-data" class="form-login">
+        <input class="form-input" type="text" name="title" placeholder="Name" value="<?= $product->title ?>"> <br>
+        <input class="form-input" type="number" name="price" placeholder="Price" value="<?= $product->price ?>"> <br>
+        <img src="<?= $product->img_url ?>" width="100%" style="margin-bottom:2%; border: 1px solid rgba(131, 131, 131, 0.768)"><img></br>
+        <input class="form-input" type="file" name="img-url" accept="image/*"> <br>
+        <input class="user-regitration" type="submit" value="Spara">
     </form>
-
-
-    <p><b>Delete:</b></p>
-    <form action="/admin-scripts/post-delete-product.php" method="post">
-        <input type="hidden" name="id" value="<?= $_GET["id"] ?>">
-        <input type="submit" value="Delete product">
+    <form action="/admin-scripts/post-delete-product.php" method="post" class="form-login" style="margin-top: -2%">
+            <input type="hidden" name="id" value="<?= $_GET["id"] ?>">
+            <input class="user-regitration" style="margin-top:2%" type="submit" value="Radera produkt">
     </form>
+</div>
 
 <?php
 endif;
-
 
 Template::footer();

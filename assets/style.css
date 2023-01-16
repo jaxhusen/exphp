@@ -273,7 +273,7 @@ input.form-input{
 
 .admin-orders-container{
     padding: 5%;
-    max-width: 350px;
+    max-width: 600px;
     max-height: 500px;
     margin: 5%;
     border: 1px solid var(--color-primary);
@@ -285,6 +285,7 @@ input.form-input{
     align-items: center;
     justify-content: space-between;
 }
+
 
 .admin-box-left{
     display: flex;
@@ -363,6 +364,31 @@ input.form-input{
     box-shadow: 0 0 40px var(--color-primary);
     border-radius: 5px;
     width: 30%;
+}
+
+.row-space-between{
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 1px solid var(--color-pink-secondary);
+    padding: 5%;
+}
+
+
+
+.row-space-between:last-child{
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.row-space-between:first-child{
+    padding-top: 0;
+}
+
+.text-left-admin-products{
+    padding-top: 5%;
 }
 
 
