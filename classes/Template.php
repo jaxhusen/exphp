@@ -29,7 +29,7 @@ class Template
             <nav class="nav">
                 <a href="/">Startsida</a>
                 <a href="/pages/products.php">Produkter</a>
-                <a href="/pages/jsonproducts.php">json produkter</a>
+                <a href="/pages/jsonproducts.php">REA</a>
                 <a href="/pages/cart.php">Varukorg(<?= $cart_count ?>)</a>
                 <?php if($is_logged_in) : ?>
                     <a href="/pages/orders.php"></i>Mina ordrar</a>
@@ -45,13 +45,9 @@ class Template
 
             <main>
                 <?php if ($is_logged_in) : ?>
-                    <p class="logged-in-box">
-                        <b>Inloggad som: </b>
-                        <?= $logged_in_user->username ?>
-                    <form action="/./scripts/post-logout.php" method="post">
-                        <input class="logout-btn" type="submit" value="Logout">
-                    </form>
-                    </p>
+                        <form action="/./scripts/post-logout.php" method="post" class="logged-in-box">
+                            <input class="logout-btn" type="submit" value="Logga ut: <?= $logged_in_user->username ?>  ">
+                        </form>
                 <?php endif; ?>
             </main>
 

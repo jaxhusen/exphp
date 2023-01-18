@@ -10,7 +10,6 @@ $is_logged_in = isset($_SESSION["user"]);
 
 
 Template::header("Varukorg"); ?>
-
 <?php foreach ($products as $product) : ?>
     <article class="product">
         <img src="<?= $product->img_url ?>" height="75" width="75">
@@ -18,6 +17,11 @@ Template::header("Varukorg"); ?>
             <b><?= $product->title ?></b>
             <?= $product->price ?> kr
         <!-- in med en delete knapp här -->
+
+        </div>
+        <div class="deleteBtn-container">
+            <input type="hidden" name="id" value="<?= $_GET["id"] ?>">
+            <button class="deleteBtn"> Radera produkt </button>
         </div>
     </article>
 
@@ -26,6 +30,7 @@ Template::header("Varukorg"); ?>
 <?php endforeach; ?>
 <?php if (count($products) > 0) : ?>
     <?php if ($is_logged_in) : ?>
+
         <form action="/../scripts/post-place-order.php" method="post">
         <div class="form-btns" style="width:20%; height: 70px;">
             <input class="register-user" style="margin-left: 10%" type="submit" value="Lägg beställning">

@@ -9,9 +9,54 @@
     --color-background-dark: rgba(131, 131, 131, 0.768);
 }
 
+
 main{
     padding: 10px;
 }
+
+
+/* ------------------- FOOTER ------------------- */
+.footer{
+    background-color: var(--color-background-dark);
+    padding: 20px;
+    text-align: center;
+    margin-top: 10px;
+    font-style: oblique;
+    height: 300px;
+    bottom: 0;
+}
+
+
+.logged-in-box{
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    text-align: left;
+    padding: 1%;
+    height: 40px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-transform: uppercase;
+}
+
+.logout-btn{
+    background-color: red;
+    border: 2px solid darkred;
+    color: darkred;
+    position: relative;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    padding: .5%;
+}
+
+
+.logout-btn:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+
 
 
 /* ------------------- HEADER ------------------- */
@@ -78,7 +123,7 @@ form{
 }
 
 
-/* ------------------- fetch API index.php ----------------  */
+/* ------------------- fetch API jsonproducts.php ----------------  */
 .grid-container{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -126,6 +171,20 @@ form{
 .h4-pad {
     padding-top: 3%;
     padding-bottom: 3%;
+}
+
+.zoom-img-container{
+        overflow: hidden;
+        margin: 0 auto;
+}
+
+.zoom-img{
+        width: 100%;
+        transition: 0.5s all ease-in-out;
+}
+
+.zoom-img:hover{
+    transform: scale(2);
 }
 
 
@@ -261,7 +320,23 @@ input.form-input{
     cursor: pointer;
 }
 
-.users-name:hover{
+.link-oops{
+    text-decoration: none;
+    color: var(--color-heading);
+    cursor: pointer;
+    font-size: larger;
+}
+
+.empty-cart{
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-top: 5%;
+}
+
+.users-name:hover,
+.link-oops:hover{
     color: black;
 }
 
@@ -419,28 +494,6 @@ h3{
 }
 
 
-.logged-in-box{
-    padding: 10px;
-    margin-top: -5px;
-}
-
-.logout-btn{
-    padding: 5px 10px;
-    background-color: red;
-    border: 2px solid darkred;
-    color: darkred;
-    position: absolute;
-    top: 390px;
-    margin-left: 700px;
-    font-size: 15px;
-}
-
-
-.logout-btn:hover{
-    opacity: 0.8;
-    cursor: pointer;
-}
-
 
 
 
@@ -458,11 +511,28 @@ h3{
 }
 
 
-/* ------------------- FOOTER ------------------- */
-.footer{
-    background-color: var(--color-background-dark);
-    padding: 20px;
-    text-align: center;
-    margin-top: 10px;
-    font-style: oblique;
+@media screen and (max-width: 1024px) {
+    .form-login{
+        width: 60%;
+    }
+    .admin-users-box{
+        width: 60%;
+    }
+    .row-space-between{
+        width: 90%;
+    }
+    .admin-orders-master{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .admin-orders-container{
+        width: 60%;
+    }
+    .admin-update-box{
+        width: 60%;
+    }
+    .admin-order-delete{
+        padding: 1%;
+    }
 }

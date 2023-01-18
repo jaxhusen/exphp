@@ -107,8 +107,8 @@ Template::header("Admin sida"); ?>
                 <input type="hidden" name="id" value="<?= $order->id ?>">
                 <select name="status">
                     <option disabled selected>Status</option>
-                    <option value="waiting">Väntande ..</option>
-                    <option value="Sent">Skickad</option>
+                    <option value="Väntande ..">Väntande ..</option>
+                    <option value="Skickad">Skickad</option>
                 </select>
                 <input type="submit" value="Spara" class="user-regitration">
             </form>

@@ -58,10 +58,16 @@ class ProductsDb extends Db
 
 
     //update
-    public function update (Product $product, $id){
-        $query = "UPDATE products SET `title` = ?, price = ?,`img-url` = ? WHERE id = ?";
+    public function update(Product $product, $id){
+        $query = "UPDATE products SET `title` = ?, price = ?, `img-url` = ? WHERE id = ?";
         $stmt = mysqli_prepare($this->conn, $query);
-        $stmt->bind_param("sisi", $product->title, $product->price, $product->img_url, $id);
+        $stmt->bind_param(
+            "sisi",
+            $product->title,
+            $product->price,
+            $product->img_url,
+            $id
+        );
         return $stmt->execute();
     }
 

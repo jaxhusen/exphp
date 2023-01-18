@@ -16,16 +16,29 @@ $orders = $orders_db->get_one_by_userid($logged_in_user->id);
 $products_db = new ProductsDb();
 $all_products = [];
 $order_value = 0;
-
-
 ?>
 
+
+<?php
+if ($is_logged_in && $order_value > 0) : ?>
 <h2 class="admin-heading">Mina beställningar</h2>
+</div>
+<?php endif; ?>
+
+
 <?php
 if (!$is_logged_in) : ?>
-    <a href="/pages/register.php"></i>Logga in för att lägga beställning</a>
+    <a class="users-name" href="/pages/register.php"><p class="users-name" style="text-decoration=none; ">Logga in för att lägga beställning</p></a>
 <?php endif; ?>
-<hr><br>
+<br>
+
+<?php
+if ($is_logged_in && $order_value == 0) : ?>
+    <div class="empty-cart">
+        <a class="link-oops" href="/pages/products.php">Ooops... Här var det tomt. Gå till produkter</a>
+    </div>
+<?php endif; ?>
+
 
 
 <div class="admin-content-center">
@@ -79,12 +92,19 @@ if (!$is_logged_in) : ?>
 </div>
 
 
-<?php $products = $products_db->get_by_orderid($logged_in_user->id);?>
+
+<?php
+if ($is_logged_in && $order_value > 0) : ?>
+    <?php $products = $products_db->get_by_orderid($logged_in_user->id);?>
 <div>
 <h2 class="admin-heading">Summa: <?= $sum = array_reduce($all_products, function ($arr, $value) {
                 return $arr + $value->price;
             })  ?> Kr </h2>
 </div>
+<?php endif; ?>
+
+
+
 
 
 <?php

@@ -4,34 +4,20 @@
         "productName": "Corona",
         "productPrice": "1049",
         "productImg": "/../assets/uploads/corre.jpg",
-        "productQtn": "6"
-    },
-    {
-        "id": "1",
-        "productName": "Skyfall",
-        "productPrice": "749",
-        "productImg": "/../assets/uploads/SKYFALL.jpg",
-        "productQtn": "6"
+        "productSale": "499"
     },
     {
         "id": "2",
         "productName": "BW",
-        "productPrice": "1049",
+        "productPrice": "749",
         "productImg": "/../assets/uploads/bw.jpg",
-        "productQtn": "6"
+        "productSale": "399"
     },
     {
         "id": "3",
         "productName": "Twinning",
         "productPrice": "1049",
         "productImg": "/../assets/uploads/TWINNING.jpg",
-        "productQtn": "6"
-    },
-    {
-        "id": "4",
-        "productName": "StreetsofSaturn",
-        "productPrice": "1649",
-        "productImg": "/../assets/uploads/STREETSOFSATURN.jpg",
-        "productQtn": "6"
+        "productSale": "549"
     }
 ]

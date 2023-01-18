@@ -60,7 +60,7 @@ class UsersDb extends Db{
 
     // update role
     public function update(User $user){
-        $query = "UPDATE users SET `role`=? WHERE username=?";
+        $query = "UPDATE users SET `role` = ? WHERE username = ?";
         $stmt = mysqli_prepare($this->conn, $query);
         $stmt->bind_param("ss", $user->role, $user->username);
         return $stmt->execute();
@@ -68,13 +68,11 @@ class UsersDb extends Db{
 
 
     // delete
-    public function delete($id)
-    {
-        $query = "DELETE FROM users WHERE id = ?";
+    public function delete($username){
+        $query = "DELETE FROM users WHERE username = ?";
         $stmt = mysqli_prepare($this->conn, $query);
-        $stmt->bind_param("i", $id);
-        $success = $stmt->execute();
+        $stmt->bind_param("s", $username);
 
-        return $success;
+        return $stmt->execute();
     }
 }

@@ -35,7 +35,7 @@ if ($product == null) : ?>
         <input class="form-input" type="text" name="title" placeholder="Name" value="<?= $product->title ?>"> <br>
         <input class="form-input" type="number" name="price" placeholder="Price" value="<?= $product->price ?>"> <br>
         <img src="<?= $product->img_url ?>" width="100%" style="margin-bottom:2%; border: 1px solid rgba(131, 131, 131, 0.768)"><img></br>
-        <input class="form-input" type="file" name="img-url" accept="image/*"> <br>
+        <input class="form-input" type="file" name="img_url" accept="image/*"> <br>
         <input class="user-regitration" type="submit" value="Spara">
     </form>
     <form action="/admin-scripts/post-delete-product.php" method="post" class="form-login" style="margin-top: -2%">

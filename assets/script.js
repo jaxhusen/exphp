@@ -1,4 +1,4 @@
-
+/* 
 document.addEventListener("DOMContentLoaded", () => {
     const showButtons = document.querySelectorAll(".show-product-details");
 
@@ -19,6 +19,10 @@ async function onClickProductDetails(e){
     document.getElementById("product-img").src = product.img_url;
     document.getElementById("product-title").innerText = product.title;
     document.getElementById("product-price").innerText = product.price + " kr";
-}; 
+};  */
 
 
+document.addEventListener("click", () => {
+    const deleteBtn = document.querySelector(".deleteBtn");
+
+})
