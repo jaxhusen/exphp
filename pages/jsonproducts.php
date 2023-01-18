@@ -35,10 +35,8 @@ Template::header("Produkter");
                         <div class="zoom-img-container">
                             <img src="${product.productImg}" alt="Bild" class="img zoom-img">
                         </div>
-                        <form action="/scripts/post-add-to-cart.php" method="post">
-            <input type="hidden" name="product-id" value="<?= $product->id ?>">
-            <input class="box-btn" type="submit" value="Lägg till i varukorg">
-        </form>
+                        <input type="hidden" name="product-id" value="<?= $product->id ?>">
+                        <input class="box-btn" type="submit" value="Lägg till i varukorg">
                         </div>`
                     document.querySelector('.grid-container').insertAdjacentHTML('beforeend', productCard);
                 });

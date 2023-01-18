@@ -26,18 +26,20 @@ if ($is_logged_in && $order_value > 0) : ?>
 <?php endif; ?>
 
 
+<!-- <?php
+if ($is_logged_in && $order_value < 0) : ?>
+    <div class="empty-cart">
+        <a class="link-oops" href="/pages/products.php">Ooops... Här var det tomt. Gå till produkter</a>
+    </div>
+<?php endif; ?> -->
+
+
+
 <?php
 if (!$is_logged_in) : ?>
     <a class="users-name" href="/pages/register.php"><p class="users-name" style="text-decoration=none; ">Logga in för att lägga beställning</p></a>
 <?php endif; ?>
 <br>
-
-<?php
-if ($is_logged_in && $order_value == 0) : ?>
-    <div class="empty-cart">
-        <a class="link-oops" href="/pages/products.php">Ooops... Här var det tomt. Gå till produkter</a>
-    </div>
-<?php endif; ?>
 
 
 
@@ -45,7 +47,7 @@ if ($is_logged_in && $order_value == 0) : ?>
 <?php foreach ($orders as $order) : ?>
 
     <div class="admin-orders-container">
-    <div class="admin-box" style="min-width: 600px">
+    <div class="admin-box-order">
         <div class="admin-box-left">
             <p class="users-role">Användar ID - <i class="users-order"><?=$order->user_id?></i></p></br>
             <p class="users-role">Beställnings ID - <i class="users-order"><?=$order->id?></i></p></br>

@@ -53,7 +53,7 @@ Template::header("Admin sida"); ?>
             <div class="text-left-admin-products">
                 <a class="users-name" href="/pages/admin-product.php?id=<?= $product->id ?>">
                 <?= $product->title ?></a> 
-                <i class="users-role"> - <?= $product->price ?> SEK</i></br>
+                <i class="users-role"> - <?= $product->price ?> :-</i></br>
             </div>
             <div class="pic-right-admin-products">
                 <img src="<?= $product->img_url ?>" height="70px" width="70px"></i></br>

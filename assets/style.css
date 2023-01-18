@@ -36,7 +36,6 @@ main{
     height: 40px;
     top: 0;
     left: 0;
-    width: 100%;
     text-transform: uppercase;
 }
 
@@ -114,6 +113,7 @@ form{
     padding: 10px;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     margin: 0px 30px ;
 }
 
@@ -221,6 +221,7 @@ input.form-input{
 }
 
 
+
 .form-input:focus{
     background-color: white;
     border-color: var(--color-heading);
@@ -231,7 +232,9 @@ input.form-input{
 .login-user:active,
 .register-user:active,
 .user-regitration:active,
-.admin-order-delete:active{
+.admin-order-delete:active,
+.place-orderBtn:active,
+.deleteBtn:active{
     transform: scale(.8);
 }
 
@@ -277,13 +280,47 @@ input.form-input{
 .login-user:hover,
 .register-user:hover,
 .user-regitration:hover,
-.admin-order-delete:hover{
+.admin-order-delete:hover,
+.place-orderBtn:hover{
     background-color: white;
     transition: .5s;
     color: var(--color-heading);
     border-color: var(--color-heading);
 }
 
+
+.deleteBtn{
+    background-color: red;
+    border: 2px solid darkred;
+    color: darkred;
+    font-size: 15px;
+    text-align: center;
+}
+
+.deleteBtn:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.form-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5%;
+}
+
+.place-orderBtn{
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: var(--color-primary);
+    padding-right: -30%;
+    font-size: small;
+    color: rgba(110, 110, 110, 0.877);
+    border: 1px solid var(--color-background-dark);
+    cursor: pointer;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
 
 
 /* -------------- ADMIN ----------- */
@@ -309,7 +346,7 @@ input.form-input{
 }
 
 .users-role{
-    font-size: 20px;
+    font-size: 17px;
     text-transform: uppercase;
     white-space: nowrap;
 }
@@ -344,21 +381,32 @@ input.form-input{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-content: space-evenly;
+    gap: 2%;
+    padding: 5% 2%;
 }
 
 .admin-orders-container{
-    padding: 5%;
-    max-width: 600px;
+    min-width: 300px;
     max-height: 500px;
-    margin: 5%;
+    margin: 2%;
     border: 1px solid var(--color-primary);
     box-shadow: 0 0 40px var(--color-primary);
+    padding: 2%;
 }
 .admin-box{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    padding: 4%;
+
+}
+.admin-box-order{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 600px;
 }
 
 
@@ -385,7 +433,9 @@ input.form-input{
 
 .admin-content-center{
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .admin-users-container{
@@ -521,7 +571,8 @@ h3{
     .row-space-between{
         width: 90%;
     }
-    .admin-orders-master{
+    .admin-orders-master,
+    .admin-content-center{
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -534,5 +585,37 @@ h3{
     }
     .admin-order-delete{
         padding: 1%;
+    }
+    .title-price-cart{
+        padding-top: 10%;
+    }
+    .deleteBtn{
+        margin: 10%;
+        margin-left: -2%;
+    }
+    article.product{
+        padding: 2%;
+    }
+    .box-btn{
+        font-size: medium;
+    }
+}
+@media screen and (max-width: 768px){
+    .admin-box-order{
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        min-width: 100px;
+        align-items: start;
+        padding-left: 5%;
+        line-height: .9;
+    }
+    .box-btn{
+        font-size: small;
+    }
+}
+@media screen and (max-width: 768px){
+    .nav{
+
     }
 }
