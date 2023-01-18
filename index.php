@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./assets/snowflake.js"></script>
+    <script src="./assets/script.js"></script>
+    <script src="https://kit.fontawesome.com/b5e1c569b8.js" crossorigin="anonymous"></script>
     <title>ARThusen</title>
 </head>
 <body>
@@ -13,6 +16,13 @@ require_once __DIR__ . "/classes/Template.php";
 
 Template::header("ARThusen_");
 ?>
+
+
+    <canvas id="favoritirepris"></canvas>
+    
+
+
+
 <h2> Om oss: </h2>
     <div>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit.

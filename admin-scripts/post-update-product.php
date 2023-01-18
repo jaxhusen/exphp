@@ -16,11 +16,10 @@ if (isset($_POST["title"]) && isset($_POST["price"]) && isset($_GET["id"])) {
     $full_relative_url = "/assets/uploads/{$file_name}";
     $success = move_uploaded_file($_FILES["img_url"]["tmp_name"], $full_upload_path);
 
-    echo "heeej";
+
     $product = new Product($_POST["title"], $_POST["price"], $full_relative_url);
     $products_db = new ProductsDb();
     $success = $products_db->update($product, $_GET["id"]);
-
 
 } else {
     die("Invalid input");
