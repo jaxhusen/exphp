@@ -83,7 +83,7 @@ class Template
                     <a href="#">Copyright</a>
                 </div>
                 <div class="footer-one">
-                <div class="div-headern"> Copyright ARThusen 2020 </div>
+                <div> Copyright ARThusen 2020 </div>
                 </div>
             </footer>
 
