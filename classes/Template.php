@@ -26,21 +26,29 @@ class Template
             <header>
                 <h1 class="title"> <?= $title ?> </h1>
             </header>
-            <nav class="nav">
-                <a href="/">Startsida</a>
-                <a href="/pages/products.php">Produkter</a>
-                <a href="/pages/jsonproducts.php">REA</a>
-                <a href="/pages/cart.php">Varukorg(<?= $cart_count ?>)</a>
-                <?php if($is_logged_in) : ?>
-                    <a href="/pages/orders.php"></i>Mina ordrar</a>
-                <?php endif; ?>
-                <?php if (!$is_logged_in) : ?>
-                    <a href="/pages/login.php">Logga in</a>
-                    <a href="/pages/register.php">Registrera</a>
-                <?php elseif ($is_admin) : ?>
-                    <a href="/../pages/admin.php">Admin sida</a>
-                <?php endif; ?>
-            </nav>
+            <ul class="nav">
+                    <a href="/">Startsida</a>
+                    <div class="dropdown">
+                        <a href="/pages/products.php" class="drop-head">Produkter</a>
+                        <div class="dropdown-content">
+                            <a href="/pages/jsonproducts.php">REA</a>
+                        </div>
+                    </div>
+                    <a href="/pages/cart.php">Varukorg(<?= $cart_count ?>)</a>
+                    <?php if($is_logged_in) : ?>
+                        <a href="/pages/orders.php"></i>Mina ordrar</a>
+                    <?php endif; ?>
+                    <?php if (!$is_logged_in) : ?>
+                    <div class="dropdown">
+                        <a href="/pages/login.php" class="drop-head">Logga in</a>
+                        <div class="dropdown-content">
+                            <a href="/pages/register.php">Registrera</a>
+                        </div>
+                    </div>
+                    <?php elseif ($is_admin) : ?>
+                        <a href="/../pages/admin.php">Admin sida</a>
+                    <?php endif; ?> 
+                </ul>
 
 
             <main>
