@@ -1,8 +1,8 @@
-canvas.addEventListener('click', function() { }, false);
-https://stackoverflow.com/questions/9880279/how-do-i-add-a-simple-onclick-event-handler-to-a-canvas-element
+/* canvas.addEventListener('click', function() { }, false); */
+//stackoverflow.com/questions/9880279/how-do-i-add-a-simple-onclick-event-handler-to-a-canvas-element
 
 window.onload = function(){
-    var canvas = document.getElementById('favoritirepris');
+    let canvas = document.getElementById('favoritirepris');
     var ctx = canvas.getContext('2d');
     var w = window.innerWidth;
     var h = window.innerHeight;

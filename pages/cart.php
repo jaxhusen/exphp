@@ -21,6 +21,14 @@ Template::header("Varukorg"); ?>
     <?php endif; ?>
 <?php endif; ?>
 
+<?php if (count($products) == 0) : ?>
+    <?php if (!$is_logged_in) : ?>
+    <div class="empty-cart">
+        <a class="link-oops" href="/pages/products.php">Ooops... Här var det tomt. Gå till produkter</a>
+    </div>
+    <?php endif; ?>
+<?php endif; ?>
+
 
 
 <?php foreach ($products as $product) : ?>

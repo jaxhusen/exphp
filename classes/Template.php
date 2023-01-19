@@ -57,10 +57,28 @@ class Template
     {
         ?>
             <footer class="footer">
-                Copyright ARThusen 2020
+                <div class="footer-one">
+                    <div class="div-headern"> Arthusen </div>
+                    <a href="#"> Produkter </a>
+                    <a href="#"> Rea </a>
+                </div>
+                <div class="footer-one">
+                    <div class="div-headern"> Kontakt </div>
+                    <a href="#">Kontakta oss</a>
+                    <a href="#">Vanliga frågor</a>
+                    <a href="#">Om oss</a>
+                </div>
+
+                <div class="footer-one">
+                    <div class="div-headern"> Villkor </div>
+                    <a href="#">Villkor</a>
+                    <a href="#">Copyright</a>
+                </div>
+                <div class="footer-one">
+                <div class="div-headern"> Copyright ARThusen 2020 </div>
+                </div>
             </footer>
 
-            <script src="/../assets/script.js"></script>
         </body>
         </html>
 <?php }

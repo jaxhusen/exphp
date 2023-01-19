@@ -15,18 +15,7 @@ main{
 }
 
 
-/* ------------------- FOOTER ------------------- */
-.footer{
-    background-color: var(--color-background-dark);
-    padding: 20px;
-    text-align: center;
-    margin-top: 10px;
-    font-style: oblique;
-    height: 300px;
-    bottom: 0;
-}
-
-
+/* ------------------- LOGIN/OUT ------------------- */
 .logged-in-box{
     display: flex;
     flex-direction: row;
@@ -569,7 +558,59 @@ h3{
     opacity: 0.8;
 }
 
+/* ------------------- FOOTER ------------------- */
 
+.footer{
+    background-color: var(--color-background-dark); 
+    
+    background-image: linear-gradient(to bottom,
+                        var(--color-background-light),
+                        black), 
+                        url('/assets/uploads/footer.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 5%;
+
+    bottom:0;
+    width: 90%;
+}
+.footer-one{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-size: 17px;
+    text-transform: uppercase;
+}
+
+.footer-one a{
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    padding-top: 1%;
+}
+
+.footer-one a:hover{
+    color: var(--color-pink-secondary);
+}
+
+.div-headern{
+    font-size: 25px;
+    padding-bottom: 10%;
+}
+
+
+
+
+
+
+
+
+/* ------------------- MQ ------------------- */
 @media screen and (max-width: 1024px) {
     .form-login{
         width: 60%;
@@ -624,7 +665,5 @@ h3{
     }
 }
 @media screen and (max-width: 768px){
-    .nav{
 
-    }
 }
