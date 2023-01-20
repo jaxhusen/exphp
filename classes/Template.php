@@ -151,8 +151,14 @@ public static function index($title)
                     <a href="#">Villkor</a>
                     <a href="#">Copyright</a>
                 </div>
-                <div class="footer-one">
-                <div> Copyright ARThusen 2020 </div>
+                <div class="footer-two">
+                <p> Copyright ARThusen 2020 </p>
+                <a href="mailto:#">kontakta-oss@arthusen.com</a>
+                <div class="adress">
+                    <p>Youmbo Center 26</p>
+                    <p>Playa del Ingles, 12345</p>
+                    <p>Gran Canaria</p>
+                </div>
                 </div>
             </footer>
 

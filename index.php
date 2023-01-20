@@ -53,7 +53,7 @@ Template::index('ARThusen_');
 
 
     <div class="startsida-banner">Kontakta oss</div>
-        <p class="p-text-startsida" style="margin-bottom:2%"><b>Har du något på hjärtat? </b> Tveka inte på att höra av dig. Vi fins här för dig. Som en hjälpande hand, partner in crimer eller vill du helt enkelt bara diskutera konst?
+        <p class="p-text-startsida" style="margin-bottom:2%"><b>Har du något på hjärtat? </b> Tveka inte på att höra av dig. Vi finns här för dig. Som en hjälpande hand, partner in crimer eller vill du helt enkelt bara diskutera konst?
             Vi ser fram emot att höra från dig. Återkopplar sker oftast inom 3-6 arbetsdagar då vi har högt tryck under vinter halvåret. Är ditt ärende akut? Ring gärna vår kundtjänst på <b> 070-000 00 00</b>. 
             Vill du inte mejla? Du är välkommen att kika förbi vårt kontor i Youmbo Center mitt i soliga Playa del Ingles på Gran Canaria. Kom in och ta en pause från vardagen, fika står vi för! Välkommen.
         </p></br>
@@ -62,7 +62,7 @@ Template::index('ARThusen_');
 <div class="div-space-between">
         <form class="form-contaus" action="/scripts/post-contactus.php" method="post" enctype="multipart/form-data">
             <h4 class="h4-pad">Kontakta oss här:</h4>
-</br>
+            </br>
             <input class="form-input" type="name" name="name" placeholder="Namn"> <br>
             <textarea class="form-input" name="textarea" placeholder="Textarea"></textarea>
             <div class="form-btns" style="margin-top: 2%">
