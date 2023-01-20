@@ -18,7 +18,6 @@ main{
 
 
 
-
 /* ------------------- LOGIN/OUT ------------------- */
 .logged-in-box{
     display: flex;
@@ -178,6 +177,7 @@ header{
     background-color: rgb(242, 235, 237);
     position: sticky;
     top: 0;
+    z-index: 2;
 }
 
 
@@ -198,23 +198,128 @@ header{
 
 
 
-form{
-    margin: 10px 0;
+/* ------------------- STARTSIDA ----------------  */
+
+.startsida-container{
+    display: flex;
+    flex-direction: row;
+    margin-left: 2%;
+    margin-right: 2%;
 }
 
-.product{ /* från pages->products (allt i varukorgen) */
-    /* position: absolute; */
-    border-bottom: 1px solid grey;
-    padding: 10px;
+.startsida-box{
+    margin: 1%;
+    width: 50%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-image: url('/assets/uploads/brush.jpg');
+}
+.startsida-box-2{
+    margin: 1%;
+    width: 50%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-image: url('/assets/uploads/color.jpg');
+    filter: brightness(80%);
+}
+
+.img-startsida,
+.img-startsida-2{
+    height: 600px;
+    min-height: 800px;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    z-index: 0;
+}
+
+ .startsida-box:hover,
+ .startsida-box-2:hover{
+    filter: brightness(50%);
+}
+
+
+
+.startsida-banner{
+    width: 100%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    background-color: var(--color-heading);
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-size: larger;
+    text-transform: uppercase;
+    margin-top: 7%;
+    margin-bottom: 5%;
+}
+
+.text-startsida{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: flex-start;
+    padding: 5%;
+}
+
+.h1-startsida{
+    padding-bottom: 3%;
+    text-align: center;
+}
+
+.p-text-startsida{
+    margin-left: 25%;
+    margin-right: 25%;
+    text-align: left;
+    line-height: 1.3;
+}
+
+.p-textunder-startsida{
+    margin-right: 10%;
+    margin-left: 10%;
+    line-height: 1.3;
+}
+
+
+.startsida-box-2 a,
+.startsida-box a{
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    font-size: 30px;
+}
+
+.del-50{
+    width: 48%;
+    margin: 1%;
+}
+
+
+.map {
+    height: 545px;
+    width: 100%; 
+    border: 1px solid var(--color-primary);
+    box-shadow: 0 0 40px var(--color-primary);
+  }
+
+.form-contaus{
+  border: 1px solid var(--color-primary);
+  padding: 4%;
+  box-shadow: 0 0 40px var(--color-primary);
+  border-radius: 5px;
+  height: 400px;
+  width: 40%;
+  margin: 1%;
+}
+
+.div-space-between{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 0px 30px ;
-}
-
-.title-price-cart{
-    margin-left: 10px;
-    padding: 10px;
+    margin: 2%;
 }
 
 
@@ -241,69 +346,6 @@ form{
     width: 100%;
     padding-top: 2%;
 }
-
-
-.startsida-container{
-    display: flex;
-    flex-direction: row;
-}
-
-.startsida-box{
-    padding: 1%;
-    width: 50%;
-}
-
-.img-startsida{
-    width: 100%;
-    height: 600px;
-    object-fit: cover;
-}
-
-
-
-
-
-.startsida-banner{
-    width: 98%;
-    height: 50px;
-    background-color: var(--color-heading);
-    color: white;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    font-size: larger;
-    margin: 1%;
-    text-transform: uppercase;
-}
-
-.text-startsida{
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    justify-content: flex-start;
-    padding: 5%;
-}
-
-.h1-startsida{
-    padding-bottom: 3%;
-    text-align: center;
-}
-
-.p-text-startsida{
-    margin-left: 25%;
-    margin-right: 25%;
-    text-align: left;
-}
-
-.p-textunder-startsida{
-    margin-right: 10%;
-    margin-left: 10%;
-}
-
-
-
-
-
 
 
 .box-btn {
@@ -367,7 +409,8 @@ form{
     width: 30%;
 }
 
-input.form-input{
+input.form-input,
+textarea.form-input{
     display: block;
     width: 92%;
     padding: 4%;
@@ -378,6 +421,7 @@ input.form-input{
     outline: none;
     text-transform: uppercase;
 }
+
 
 
 
@@ -714,6 +758,27 @@ h3{
 .show-product-details:hover{
     cursor: pointer;
     opacity: 0.8;
+}
+
+
+
+form{
+    margin: 10px 0;
+}
+
+.product{ /* från pages->products (allt i varukorgen) */
+    /* position: absolute; */
+    border-bottom: 1px solid grey;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0px 30px ;
+}
+
+.title-price-cart{
+    margin-left: 10px;
+    padding: 10px;
 }
 
 /* ------------------- FOOTER ------------------- */
