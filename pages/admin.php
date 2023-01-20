@@ -33,7 +33,7 @@ Template::header("Admin sida"); ?>
  <h2 class="admin-heading"> Skapa produkt </h2>
  <hr>
  <div class="form-container">
-<form class="form-login" action="/admin-scripts/post-create-product.php" method="post" enctype="multipart/form-data">
+<form class="form-login" action="/scripts/post-create-product.php" method="post" enctype="multipart/form-data">
     <input class="form-input" type="text" name="title" placeholder="Titel"> <br>
     <input class="form-input" type="number" name="price" placeholder="Pris"><br>
     <input class="form-input" type="file" name="image" accept="image/*"><br>
@@ -103,7 +103,7 @@ Template::header("Admin sida"); ?>
 
         <div class="admin-box">
             <div class="admin-box-right">
-            <form action="/admin-scripts/post-update-order.php" method="post" class="row">
+            <form action="/scripts/post-update-order.php" method="post" class="row">
                 <input type="hidden" name="id" value="<?= $order->id ?>">
                 <select name="status">
                     <option disabled selected>Status</option>
@@ -118,7 +118,7 @@ Template::header("Admin sida"); ?>
 
 
             <div class="admin-box-right">
-                <form action="/admin-scripts/post-delete-order.php" method="post">
+                <form action="/scripts/post-delete-order.php" method="post">
                     <input type="hidden" name="id" value="<?= $order->id ?>">
                     <input class="admin-order-delete" type="submit" value="Radera order">
                 </form>

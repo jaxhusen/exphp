@@ -1,58 +1,92 @@
-/* canvas.addEventListener('click', function() { }, false); */
-//stackoverflow.com/questions/9880279/how-do-i-add-a-simple-onclick-event-handler-to-a-canvas-element
+(function() {
 
-window.onload = function(){
-    let canvas = document.getElementById('favoritirepris');
-    var ctx = canvas.getContext('2d');
-    var w = window.innerWidth;
-    var h = window.innerHeight;
-    canvas.width = w;
-    canvas.height = h;
-    var mp = 45;
-    var particles = [];
+    var width, height, largeContainer, canvas, ctx, circles, target, animateHeader = true;
 
-    for(var i = 0; i < mp; i++){
-        particles.push({
-            x: Math.random()*w,
-            y: Math.random()*h,
-            r: Math.random()*4+1,
-            d: Math.random()*mp
-        })
-    }
+    // Main
+    initHeader();
+    addListeners();
 
-    function draw(){
-        ctx.clearRect(0, 0, w, h);
-        ctx.fillStyle = "white";
-        ctx.beginPath();
-        for(var i = 0; i < mp; i++){
-            var p = particles[i];
-            ctx.moveTo(p.x, p.y);
-            ctx.arc(p.x, p.y, p.r, 0, Math.PI*2, true);
+    function initHeader() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        target = {x: 0, y: height};
+      
+        largeContainer = document.getElementById('co');
+        largeContainer.style.height = height+'px';
+
+        canvas = document.getElementById('c');
+        canvas.width = width;
+        canvas.height = height;
+        ctx = canvas.getContext('2d');
+
+        // create particles
+        circles = [];
+        for(var x = 0; x < width*0.5; x++) {
+            var c = new circle();
+            circles.push(c);
         }
-        ctx.fill();
-        update();
+        animate();
     }
-var angle = 0;
 
-//snowflakes move
-function update(){
-    angle += 0.01;
-    for(var i = 0; i < mp; i++){
-        var p = particles[i];
-        p.y += Math.cos(angle+p.d) + 1 + p.r/2;
-        p.x += Math.sin(angle) *2;
-        if(p.x > w+5 || p.x < -5 || p.y > h){
-            if(i%3 > 0){
-                particles[i] = {x: Math.random() * w, y: -10, r: p.r, d: p.d}
-            }else{
-                if(Math.sin(angle) > 0){
-                    particles[i] = {x: -5, y: Math.random()*w, y: -10, r: p.r, d: p.d}
-                }else{
-                    particles[i] = {x: w+5, y: Math.random()*h, r: p.r, d: p.d}
-                }
+    // Event handling
+    function addListeners() {
+        window.addEventListener('scroll', scrollCheck);
+        window.addEventListener('resize', resize);
+    }
+
+    function scrollCheck() {
+        if(document.body.scrollTop > height) animateHeader = false;
+        else animateHeader = true;
+    }
+
+    function resize() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        largeContainer.style.height = height+'px';
+        canvas.width = width;
+        canvas.height = height;
+    }
+
+    function animate() {
+        if(animateHeader) {
+            ctx.clearRect(0,0,width,height);
+            for(var i in circles) {
+                circles[i].draw();
             }
         }
+        requestAnimationFrame(animate);
     }
-}
-setInterval(draw, 33);
-}
+
+    // Canvas manipulation
+    function circle() {
+        var _this = this;
+
+        // constructor
+        (function() {
+            _this.pos = {};
+            init();
+            console.log(_this);
+        })();
+
+        function init() {
+            _this.pos.x = Math.random()*width;
+            _this.pos.y = height+Math.random()*100;
+            _this.alpha = 0.1+Math.random()*0.3;
+            _this.scale = 0.1+Math.random()*0.3;
+            _this.velocity = Math.random();
+        }
+
+        this.draw = function() {
+            if(_this.alpha <= 0) {
+                init();
+            }
+            _this.pos.y -= _this.velocity;
+            _this.alpha -= 0.0005;
+            ctx.beginPath();
+            ctx.arc(_this.pos.x, _this.pos.y, _this.scale*10, 0, 2 * Math.PI, false);
+            ctx.fillStyle = 'rgba(255,255,255,'+ _this.alpha+')';
+            ctx.fill();
+        };
+    }
+
+})();

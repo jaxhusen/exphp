@@ -14,6 +14,11 @@ main{
 }
 
 
+
+
+
+
+
 /* ------------------- LOGIN/OUT ------------------- */
 .logged-in-box{
     display: flex;
@@ -53,6 +58,59 @@ main{
     opacity: 0.5;
     background-color: transparent;
 }
+
+.titleIndex{
+    padding: 20px;
+    opacity: 0.5;
+    background-color: transparent;
+    margin-top: -9.5%;
+    position: relative;
+    animation: Arthusen_ 2s;
+    font-size: 55px;
+}
+
+.headerIndex{
+    background-image: linear-gradient(to bottom,
+                        var(--color-background-dark),
+                        var(--color-primary)),
+                        url('/../assets/uploads/footer.jpg');
+    min-height: 800px;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: 2;
+    width: 100%;
+}
+
+
+@keyframes Arthusen_ {
+    from {top: -500px;}
+    to {top: 0}
+  }
+
+  
+.h1-header {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    font-size: 5em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    transform: translate3d(-50%,-50%,0);
+    width: 80%;
+    padding-top: 4%;
+    font-size: 50px;
+    border-top: 1px solid var(--color-heading);
+}
+
+
 
 header{
     background: url('/../assets/uploads/bw.jpg');
@@ -118,6 +176,8 @@ header{
     flex-direction: row;
     justify-content: space-evenly;
     background-color: rgb(242, 235, 237);
+    position: sticky;
+    top: 0;
 }
 
 
@@ -136,9 +196,7 @@ header{
     color: rgba(247, 115, 115, 0.912);
 } 
 
-/* .active {
-    color: rgba(247, 115, 115, 0.912);
-} */
+
 
 form{
     margin: 10px 0;
@@ -644,19 +702,8 @@ h3{
 }
 
 
-#favoritirepris {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 999;
-    pointer-events: none;
-}
-  
-#favoritirepris:hover {
-    opacity: 0.8; }
 
 
-/* ------------------- CART ------------------- */
 .show-product-details{
     padding: 5px 10px;
     font-size: 15px;
@@ -690,6 +737,7 @@ h3{
     bottom:0;
     width: 90%;
 }
+
 .footer-one{
     display: flex;
     flex-direction: column;
@@ -718,6 +766,23 @@ h3{
 
 
 
+
+
+
+
+
+/* ------------------- JS ------------------- */
+
+#favoritirepris {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    pointer-events: none;
+}
+  
+#favoritirepris:hover {
+    opacity: 0.8; }
 
 
 
