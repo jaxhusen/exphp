@@ -31,7 +31,7 @@ $orders = $orders_db->get_all();
 Template::header("Admin sida"); ?>
 
  <h2 class="admin-heading"> Skapa produkt </h2>
- <hr>
+ <hr style="margin:.7%;">
  <div class="form-container">
 <form class="form-login" action="/scripts/post-create-product.php" method="post" enctype="multipart/form-data">
     <input class="form-input" type="text" name="title" placeholder="Titel"> <br>
@@ -45,7 +45,7 @@ Template::header("Admin sida"); ?>
 
 
 <h2 class="admin-heading"> Produkter </h2>
-<hr>
+<hr style="margin:.7%;">
 <div class="admin-users">
         <div class="admin-users-box">
 <?php foreach ($products as $product) : ?>
@@ -65,7 +65,7 @@ Template::header("Admin sida"); ?>
 
 
 <h2 class="admin-heading"> Användare </h2>
-<hr>
+<hr style="margin:.7%;">
 <div class="admin-users">
         <div class="admin-users-box">
 <?php foreach ($users as $user) : ?>
@@ -85,7 +85,7 @@ Template::header("Admin sida"); ?>
 
 
 <h2 class="admin-heading">Alla ordrar</h2>
-<hr>
+<hr style="margin:.7%;">
 <div class="admin-orders-master">
 <?php foreach ($orders as $order) : ?>
 
@@ -97,7 +97,7 @@ Template::header("Admin sida"); ?>
             </div>
             <div class="admin-box-left">
                 <p class="users-role">STATUS - <i class="users-order"> <?= $order->status ?> </i></p></br>
-                <p class="users-role">DATUM: <i class="users-order">  <?= $order->order_date ?>  </i></p></br>
+                <p class="users-role">DATUM - <i class="users-order">  <?= $order->order_date ?>  </i></p></br>
             </div>
         </div>
 

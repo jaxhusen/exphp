@@ -63,7 +63,7 @@ Template::index('ARThusen_');
         <form class="form-contaus" action="/scripts/post-contactus.php" method="post" enctype="multipart/form-data">
             <h4 class="h4-pad">Kontakta oss här:</h4>
             </br>
-            <input class="form-input" type="name" name="name" placeholder="Namn"> <br>
+            <input class="form-input" type="name" name="name" placeholder="Namn">
             <textarea class="form-input" name="textarea" placeholder="Textarea"></textarea>
             <div class="form-btns" style="margin-top: 2%">
                 <input class="user-regitration" type="submit" value="Skicka">

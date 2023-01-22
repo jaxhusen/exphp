@@ -510,18 +510,24 @@ textarea.form-input{
     justify-content: space-between;
     padding: 5%;
 }
+.form-div-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 5%;
+}
 
 .place-orderBtn{
     text-decoration: none;
     text-transform: uppercase;
     background-color: var(--color-primary);
-    padding-right: -30%;
     font-size: small;
     color: rgba(110, 110, 110, 0.877);
     border: 1px solid var(--color-background-dark);
     cursor: pointer;
-    margin-top: 10%;
-    margin-bottom: 10%;
+    padding: 4%;
+    width: 100%;
 }
 
 
@@ -622,11 +628,25 @@ textarea.form-input{
     display: flex;
     flex-direction: row;
     white-space: nowrap;
+
+}
+
+.admin-box-rightt{
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    width: 40%;
 }
 
 .admin-heading{
     margin-top: 2%;
     margin-left: 2%;
+}
+
+.cart-heading{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 5%;
 }
 
 .admin-sub-heading{
@@ -709,7 +729,6 @@ textarea.form-input{
 }
 
 
-
 .row-space-between:last-child{
     border-bottom: none;
     padding-bottom: 0;
@@ -740,13 +759,6 @@ textarea.form-input{
     padding: 10px;
 }
 
-h3{
-    margin: 10px;
-    padding: 30px;
-}
-
-
-
 
 .show-product-details{
     padding: 5px 10px;
@@ -761,24 +773,23 @@ h3{
 }
 
 
-
 form{
     margin: 10px 0;
 }
 
 .product{ /* från pages->products (allt i varukorgen) */
-    /* position: absolute; */
-    border-bottom: 1px solid grey;
-    padding: 10px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    margin: 0px 30px ;
+    margin-left: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 .title-price-cart{
-    margin-left: 10px;
-    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20%;
+    padding-top: 25%;
 }
 
 /* ------------------- FOOTER ------------------- */
@@ -885,7 +896,7 @@ form{
         align-items: center;
     }
     .admin-orders-container{
-        width: 60%;
+        width: 68%;
     }
     .admin-update-box{
         width: 60%;

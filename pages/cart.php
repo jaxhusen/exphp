@@ -34,9 +34,9 @@ Template::header("Varukorg"); ?>
 <?php foreach ($products as $product) : ?>
     <article class="product">
             <div class="admin-box-right">
-                <img src="<?= $product->img_url ?>" height="75" width="75">
+                <img src="<?= $product->img_url ?>" height="150" width="150">
                 <div class="title-price-cart">
-                    <b><?= $product->title ?></b>
+                    <b style="padding-right: 10%"><?= $product->title ?></b>
                     <?= $product->price ?> kr
                 </div>
             </div>
@@ -45,25 +45,29 @@ Template::header("Varukorg"); ?>
     </article>
 
 
-
 <?php endforeach; ?>
 <?php if (count($products) > 0) : ?>
     <?php if ($is_logged_in) : ?>
+        <hr style="margin:.8%; width: 25%">
+        <div class="admin-box-right">
+            <h3 class="cart-heading"> Total: <?= $total_sum ?>:- </h3>
+        </div>
 
-        <form action="/../scripts/post-place-order.php" method="post" class="form-div">
-            <div class="admin-box-right">
-                <h3 class="admin-heading"> Total: <?= $total_sum ?>:- </h3>
-            </div>
-            <div class="admin-box-right">
-                <input class="place-orderBtn" type="submit" value="Lägg beställning">
-            </div>
+    <div class="form-div-row">
+        <form action="/../scripts/post-place-order.php" method="post" class="admin-box-rightt">
+            <input class="place-orderBtn" type="submit" value="Lägg beställning">
         </form>
-        <form action="/../scripts/post-delete-cart.php" method="post">
-            <input type="submit" value="Radera varukorg" class="produkt-btn">
+        <form action="/../scripts/post-delete-cart.php" method="post" class="admin-box-rightt">
+            <input type="submit" value="Radera varukorg" class="place-orderBtn">
         </form>
+    </div>
+
+
 
     <?php else : ?>
-        <a href="/pages/login.php"> Login to place order </a>
+        <div class="empty-cart">
+            <a class="link-oops" href="/pages/login.php"> Login to place order </a>
+        </div>
     <?php endif; ?>
 <?php else : ?>
 
@@ -73,9 +77,7 @@ Template::header("Varukorg"); ?>
 
 
 
-<?php if (count($products) < 0) : ?>
-    <a href="/pages/products.php"> Cart is empty</a>
-<?php endif; ?>
+
 
 
 <?php
