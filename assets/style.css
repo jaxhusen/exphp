@@ -126,8 +126,7 @@ header{
 .dropdown {
     position: relative;
     display: inline-block;
-
-    color: var(--color-pink-secondary);
+    color: var(--color-heading);
     text-decoration: none;
     padding: 2%;
     cursor: pointer;
@@ -157,12 +156,15 @@ header{
     margin-left: -11%;
     padding: 10%;
     background-color: var(--color-primary);
+    color: var(--color-heading);
+    white-space: nowrap;
 }
 
 .dropdown-content a {
     text-decoration: none;
     display: block;
     padding-top: 5%;
+    margin-top: 7%;
 }
 
 .drop-head{
@@ -183,7 +185,7 @@ header{
 
 
 .nav a{
-    color: var(--color-pink-secondary);
+    color: var(--color-heading);
     text-decoration: none;
     padding: 2%;
     cursor: pointer;
@@ -193,7 +195,7 @@ header{
 }
 
  .nav a:hover {
-    color: rgba(247, 115, 115, 0.912);
+    color: black;
 } 
 
 
@@ -246,14 +248,14 @@ header{
     width: 100%;
     padding-top: 2%;
     padding-bottom: 2%;
-    background-color: var(--color-heading);
-    color: white;
+    background-color: var(--color-primary);
+    color: var(--color-heading);
     text-align: center;
     display: flex;
     justify-content: center;
     font-size: larger;
     text-transform: uppercase;
-    margin-top: 7%;
+    margin-top: 2%;
     margin-bottom: 5%;
 }
 
@@ -321,6 +323,49 @@ header{
     justify-content: space-between;
     margin: 2%;
 }
+
+.disabled{
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.user-disabled{
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: var(--color-primary);
+    padding: 4%;
+    font-size: small;
+    color: rgba(110, 110, 110, 0.877);
+    border: 1px solid var(--color-background-dark);
+    width: 100%;
+    cursor: not-allowed;
+}
+
+/* ------------------- MY ACCOUNT ----------------  */
+.my-account-container{
+    display: flex;
+    flex-direction: column;
+    margin:2%;
+}
+
+.my-account-top-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.account-img{
+    border: 1px solid var(--color-primary);
+    height: 400px;
+    width: 400px;
+}
+.account-img-text{
+    margin-left: 5%;
+}
+
+.my-account-bottom-container{
+    margin-top: 5%;
+}
+
 
 
 /* ------------------- fetch API jsonproducts.php ----------------  */
@@ -422,7 +467,21 @@ textarea.form-input{
     text-transform: uppercase;
 }
 
+.wrong{
+    color: red;
+    text-transform: uppercase;
+    font-size: medium;
+    margin-bottom: 2%;
+    margin-top: -2%;
+}
 
+h5{
+    color: rgb(47, 196, 47);
+    text-transform: uppercase;
+    font-size: medium;
+    margin-bottom: 2%;
+    margin-top: -2%;
+}
 
 
 .form-input:focus{
@@ -857,9 +916,68 @@ form{
 }
 
 
+/* ------------------- accordion ------------------- */
+
+.accordion-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+    margin-bottom: 5%
+}
+
+.accordion-head {
+    background-color: var(--color-primary);
+    color: var(--color-heading);
+    cursor: pointer;
+    width: 50%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    padding: 2% 5%;
+    align-items: center;
+    font-size: 20px;
+    text-transform: uppercase;
+  }
+  
+  
+  .active, .accordion-head:hover {
+    background-color: var(--color-background-light);
+  }
 
 
+  .accordion-text {
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.2s ease-out;
+    width: 40%;
+  }
 
+  .inside-accordion{
+    padding-top: 5%;
+    padding-bottom: 5%;
+  }
+
+  .accordion-head.active:after {
+    float: right;
+    content: "\2212";
+    color: rgba(255, 0, 0, 0.644);
+    transition: transform 3s rotate(0deg);
+    font-size: 20px;
+  }
+  
+  .accordion-head::after {
+    content: "\002B";
+    font-size: 20px;
+    transition: transform 2s ease-in;
+    float: right;
+}
+
+.accordion.active+.panel {
+    display: block;
+}
 
 
 
@@ -875,6 +993,9 @@ form{
   
 #favoritirepris:hover {
     opacity: 0.8; }
+
+
+
 
 
 

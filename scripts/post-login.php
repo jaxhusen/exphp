@@ -11,8 +11,7 @@ if(isset($_POST["username"]) && isset($_POST["password"])){
         $_SESSION["user"] = $user;
         header("Location: /");
     }else{
-        header("Location: /pages/login.php?error=wrong-user-or-pass");
-        die();
+        header("Location: /pages/failed-to-login.php");
     }
 
 }else{

@@ -30,7 +30,15 @@ class Template
 
 
             <ul class="nav">
-                    <a href="/">Startsida</a>
+                    <div class="dropdown">
+                        <a href="/" class="drop-head">Startsida</a>
+                        <div class="dropdown-content">
+                            <a href="/pages/message.php">Kontakta oss</a>
+                            <a href="/pages/about-us.php">Om oss</a>
+                            <a href="/pages/find-us.php">Hitta hit</a>
+                            <a href="/pages/qanda.php">Vanliga frågor</a>
+                        </div>
+                    </div>
                     <div class="dropdown">
                         <a href="/pages/products.php" class="drop-head">Produkter</a>
                         <div class="dropdown-content">
@@ -39,7 +47,12 @@ class Template
                     </div>
                     <a href="/pages/cart.php">Varukorg(<?= $cart_count ?>)</a>
                     <?php if($is_logged_in) : ?>
-                        <a href="/pages/orders.php"></i>Mina ordrar</a>
+                        <div class="dropdown">
+                        <a href="/pages/my-account.php" class="drop-head">Mitt konto</a>
+                        <div class="dropdown-content">
+                            <a href="/pages/orders.php">Mina ordrar</a>
+                        </div>
+                    </div>
                     <?php endif; ?>
                     <?php if (!$is_logged_in) : ?>
                     <div class="dropdown">
@@ -141,7 +154,7 @@ public static function index($title)
                 </div>
                 <div class="footer-one">
                     <div class="div-headern"> Kontakt </div>
-                    <a href="#">Kontakta oss</a>
+                    <a href="./pages/message.php">Kontakta oss</a>
                     <a href="#">Vanliga frågor</a>
                     <a href="#">Om oss</a>
                 </div>

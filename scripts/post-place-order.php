@@ -14,7 +14,7 @@ if(!$cart){
 
 
 if ($is_logged_in && count($cart) > 0) {
-    $order = new Order($logged_in_user->id, "waiting", date("Y-m-d"));
+    $order = new Order($logged_in_user->id, "väntande..", date("Y-m-d"));
     $db_orders = new OrdersDb();
     $order_id = $db_orders->create($order);
 

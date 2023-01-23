@@ -12,7 +12,6 @@ $is_logged_in = isset($_SESSION["user"]);
 Template::header("Varukorg"); ?>
 
 
-
 <?php if (count($products) == 0) : ?>
     <?php if ($is_logged_in) : ?>
     <div class="empty-cart">
@@ -20,6 +19,7 @@ Template::header("Varukorg"); ?>
     </div>
     <?php endif; ?>
 <?php endif; ?>
+
 
 <?php if (count($products) == 0) : ?>
     <?php if (!$is_logged_in) : ?>
@@ -43,9 +43,9 @@ Template::header("Varukorg"); ?>
         </div>
         </div>
     </article>
-
-
 <?php endforeach; ?>
+
+
 <?php if (count($products) > 0) : ?>
     <?php if ($is_logged_in) : ?>
         <hr style="margin:.8%; width: 25%">

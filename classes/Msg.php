@@ -4,16 +4,16 @@ Class Msg {
     public $id;
     public $username;
     public $message;
-    public $reply;
+    public $status;
 
 
-    public function __construct($username, $message, $id=0, $reply = "")
+    public function __construct($username, $message, $status, $id=0,)
     {
         if($id > 0){
             $this->id = $id;
         }
         $this->username = $username;
         $this->message = $message;
-        $this->reply = $reply;
+        $this->status = $status;
     }
 }

@@ -9,11 +9,7 @@ Template::header("Logga in");
 
 <div class="form-container">
 <form class="form-login" action="/scripts/post-login.php" method="post">
-<?php
- if(isset($_GET["register"]) && $_GET["register"] == "success"){
-    echo "<h5> Användare registrerad </h5>";
-}
-?>
+    <h2 class="wrong">Fel användarnamn eller lösenord</h2>
     <input class="form-input" type="text" name="username" autofocus placeholder="Användarnamn"><br>
     <input class="form-input" type="password" name="password" autofocus placeholder="Lösenord"><br>
     <div class="form-btns">

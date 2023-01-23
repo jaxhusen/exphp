@@ -15,6 +15,10 @@ $office = "Gran Canaria, youmbo center"
 <?php // http://localhost:8888/
 require_once __DIR__ . "/classes/Template.php";
 
+session_start();
+$is_logged_in = isset($_SESSION['user']);
+$logged_in_user = $is_logged_in ? $_SESSION['user'] : null;
+
 Template::index('ARThusen_');
  
 
@@ -53,18 +57,19 @@ Template::index('ARThusen_');
 
 
     <div class="startsida-banner">Kontakta oss</div>
-        <p class="p-text-startsida" style="margin-bottom:2%"><b>Har du något på hjärtat? </b> Tveka inte på att höra av dig. Vi finns här för dig. Som en hjälpande hand, partner in crimer eller vill du helt enkelt bara diskutera konst?
+        <p class="p-text-startsida" style="margin-bottom:2%;color: var(--color-heading)"><b>Har du något på hjärtat? </b> Tveka inte på att höra av dig. Vi finns här för dig. Som en hjälpande hand, partner in crimer eller vill du helt enkelt bara diskutera konst?
             Vi ser fram emot att höra från dig. Återkopplar sker oftast inom 3-6 arbetsdagar då vi har högt tryck under vinter halvåret. Är ditt ärende akut? Ring gärna vår kundtjänst på <b> 070-000 00 00</b>. 
             Vill du inte mejla? Du är välkommen att kika förbi vårt kontor i Youmbo Center mitt i soliga Playa del Ingles på Gran Canaria. Kom in och ta en pause från vardagen, fika står vi för! Välkommen.
         </p></br>
 
-
+<?php
+if ($is_logged_in) : ?>
 <div class="div-space-between">
         <form class="form-contaus" action="/scripts/post-contactus.php" method="post" enctype="multipart/form-data">
-            <h4 class="h4-pad">Kontakta oss här:</h4>
+            <h4 class="h4-pad" style="color: var(--color-heading);font-size: larger;">Kontakta oss här:</h4>
             </br>
             <input class="form-input" type="name" name="name" placeholder="Namn">
-            <textarea class="form-input" name="textarea" placeholder="Textarea"></textarea>
+            <textarea class="form-input" name="textarea" placeholder="Textarea"  style="margin-top: 2%"></textarea>
             <div class="form-btns" style="margin-top: 2%">
                 <input class="user-regitration" type="submit" value="Skicka">
             </div>
@@ -73,8 +78,28 @@ Template::index('ARThusen_');
         <iframe class="map" src="https://www.google.com/maps?q=<?php echo $office;?>&output=embed"></iframe>
     </div>
 </div>
- 
+<?php else: ?>
+    <?php if (!$is_logged_in) : ?>
 
+        <div class="div-space-between">
+        <form class="form-contaus" action="/scripts/post-contactus.php" method="post" enctype="multipart/form-data">
+        <div class="empty-cart"style="padding-top: 0%; height: 70px;">
+        <a class="link-oops" href="/pages/login.php"></i>Logga in för att skicka meddelande</a>
+        </div></br>
+            <input class="form-input disabled" type="name" name="name" placeholder="Namn">
+            <textarea class="form-input disabled" name="textarea" placeholder="Textarea"  style="margin-top: 2%"></textarea>
+            <div class="form-btns disabled" style="margin-top: 2%">
+                <input class="user-disabled" type="submit" value="Skicka">
+            </div>
+        </form> 
+    <div class="del-50">
+        <iframe class="map" src="https://www.google.com/maps?q=<?php echo $office;?>&output=embed"></iframe>
+    </div>
+</div>
+
+
+    <?php endif ; ?> 
+    <?php endif ; ?>
 </body>
 </html>
 

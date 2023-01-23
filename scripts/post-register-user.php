@@ -15,13 +15,13 @@ if(
     strlen($_POST["password"]) > 0 &&
     $_POST["password"] === $_POST["confirm-password"]){
         $users_db = new UsersDb();
-        $user = new User($_POST["username"], 'customer');
+        $user = new User($_POST["username"], 'Kund');
         $user->hash_password($_POST["password"]);
         $existing_user = $users_db->get_one_by_username($_POST["username"]);
 
 
         if($existing_user){
-            die("Username is taken");
+            header("Location: /pages/failed-to-register.php");
         }else{
             $success = $users_db->create($user);
         }

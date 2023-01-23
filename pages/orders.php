@@ -26,12 +26,12 @@ if ($is_logged_in && $order_value > 0) : ?>
 <?php endif; ?>
 
 
-<!-- <?php
-if ($is_logged_in && $order_value < 0) : ?>
+<?php
+if (!$is_logged_in && $order_value <= 0) : ?>
     <div class="empty-cart">
         <a class="link-oops" href="/pages/products.php">Ooops... Här var det tomt. Gå till produkter</a>
     </div>
-<?php endif; ?> -->
+<?php endif; ?> 
 
 
 
@@ -42,10 +42,10 @@ if (!$is_logged_in) : ?>
 <br>
 
 
-
+<h2 class="admin-heading">Mina ordrar:</h2>
+<hr style="margin:.7%;">
 <div class="admin-content-center">
 <?php foreach ($orders as $order) : ?>
-
     <div class="admin-orders-container">
     <div class="admin-box-order">
         <div class="admin-box-left">
