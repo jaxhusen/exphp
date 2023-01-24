@@ -30,12 +30,18 @@ class Template
                 <h1 class="title"> <?= $title ?> </h1>
             </header>
 
-            <ul class="nav">
-                    <div class="dropdown">
-                        <a href="/" class="drop-head">Startsida</a>
+<!-- menyn på alla sidor föruton index -->
+            <div class="navbar">
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <ul class="nav">
+                <div class="dropdown">
+                    <a href="/"  class="drop-head">Startsida</a>
                         <div class="dropdown-content">
                             <a href="/pages/message.php">Kontakta oss</a>
-                            <a href="/pages/about-us.php">Om oss</a>
                             <a href="/pages/find-us.php">Hitta hit</a>
                             <a href="/pages/qanda.php">Vanliga frågor</a>
                         </div>
@@ -68,8 +74,21 @@ class Template
                         <a href="/../pages/admin.php">Admin sida</a>
                     <?php endif; ?> 
                 </ul>
+                    </div>
+ <script>
+    /* kod för burger i mediaqueries */
+const toggleBtn = document.querySelector('.hamburger');
+const navContainer = document.querySelector('.nav');
+
+toggleBtn.addEventListener("click", () => {
+    toggleBtn.classList.toggle("active");
+    navContainer.classList.toggle("active");
+})
+ </script> 
 
 
+
+<!-- om jag är inloggad kommer denna kod att visas -->
             <main>
                 <?php if ($is_logged_in) : ?>
                         <form action="/./scripts/post-logout.php" method="post" class="logged-in-box">
@@ -108,22 +127,23 @@ public static function index($title)
                 <h1 class="titleIndex"> <?= $title ?> </h1>
             </div>
 
-                <div class="nav">
+
+            <!-- menyn på index -->
+            <div class="navbar">
                 <div class="hamburger">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
                 </div>
-                    <ul>
-                   <div class="dropdown"> 
-                        <a href="/" class="drop-head">Startsida</a>
+                <ul class="nav">
+                <div class="dropdown">
+                    <a href="/"  class="drop-head">Startsida</a>
                         <div class="dropdown-content">
                             <a href="/pages/message.php">Kontakta oss</a>
-<!--                             <a href="/pages/about-us.php">Om oss</a> -->
-                            <a href="/pages/find-us.php">Hitta hit</a>
                             <a href="/pages/qanda.php">Vanliga frågor</a>
-                        </div> 
-                   </div> 
+                            <a href="/pages/find-us.php">Hitta hit</a>
+                        </div>
+                    </div>
                     <div class="dropdown">
                         <a href="/pages/products.php" class="drop-head">Produkter</a>
                         <div class="dropdown-content">
@@ -153,8 +173,17 @@ public static function index($title)
                     <?php endif; ?> 
                 </ul>
                     </div>
+ <script>
+    /* kod för burger i mediaqueries */
+const toggleBtn = document.querySelector('.hamburger');
+const navContainer = document.querySelector('.nav');
 
-
+toggleBtn.addEventListener("click", () => {
+    toggleBtn.classList.toggle("active");
+    navContainer.classList.toggle("active");
+})
+ </script> 
+<!-- om jag är inloggad kommer denna kod att visas -->
             <main>
                 <?php if ($is_logged_in) : ?>
                         <form action="/./scripts/post-logout.php" method="post" class="logged-in-box">
@@ -169,6 +198,7 @@ public static function index($title)
 
     public static function footer()
     {
+        /* footer som visas på varje sida */
         ?>
             <footer class="footer">
                 <div class="footer-one">

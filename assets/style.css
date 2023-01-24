@@ -728,6 +728,7 @@ h5{
     color: var(--color-heading);
     padding-top: 2%;
     padding-left: 5%;
+    white-space: break-spaces;
 }
 
 
@@ -991,21 +992,66 @@ form{
 
 
 .bar{
+    margin-left: 10%;
+    position: absolute;
     display: block;
-    width: 25px;
+    width: 40px;
     height: 3px;
-    top: 0;
-    left: 0;
     -webkit-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
-    background-color: var(--color-primary);
+    background-color: var(--color-heading);
+    border-radius: 5px;
 }
 
+.bar:nth-child(1){
+    transform: translateY(15px);
+}
+
+
+.bar:nth-child(2){
+    transform: translateY(-15px);
+}
+
+.hamburger.active .bar:nth-child(3){
+    transition: .3s ease-in-out;
+    opacity: 0;
+} 
+
+.hamburger.active .bar:nth-child(2){
+    transform:  rotate(-45deg);
+} 
+
+.hamburger.active .bar:nth-child(1){
+    transform:  rotate(45deg);
+} 
+
+
 .hamburger{
-    display: none;
     cursor: pointer;
     color: var(--color-heading);
+    background-color: var(--color-primary);
+    z-index: 666;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    right: 0;
 }
+
+.navbar{
+    width: 100%;
+}
+
+.nav.active{
+    left: -10%;
+    z-index: 1;
+    background-color: var(--color-primary);
+    border-bottom: 1px solid var(--color-heading);
+}
+
 
 
 /* ------------------- JS ------------------- */
@@ -1023,7 +1069,7 @@ form{
 
 
 /* ------------------- MQ ------------------- */
-@media screen and (max-width: 1500px) {
+@media screen and (min-width: 1200px) {
     .admin-box{
         display: flex;
         flex-direction: column;
@@ -1033,9 +1079,13 @@ form{
     .admin-order-delete{
         margin-left: 0%;
     }
+    .hamburger{
+        display: none;
+    }
+
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (min-width: 768px) {
     .form-login{
         width: 60%;
     }
@@ -1050,6 +1100,7 @@ form{
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-bottom: 2%;
     }
     .admin-orders-container{
         width: 68%;
@@ -1073,8 +1124,46 @@ form{
     .box-btn{
         font-size: medium;
     }
+    .div-space-between{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .form-contaus{
+        width: 85%;
+    }
+    .del-50{
+        width: 93%;
+    }
+    .startsida-box-2,
+    .startsida-box{
+        width: 95%;
+        height: 600px;
+    }
+    .div-space-between{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+    }
+    .img-startsida{
+        min-height: 600px;
+        height: 600px;
+    }
+    .admin-order-delete{
+        padding: 7%;
+    }
+    .div-headern{
+        font-size: 18px;
+    }
+    .footer-one a,
+    .footer-two a,
+    .footer-two{
+        font-size: 13px;
+    }
+
 }
-@media screen and (max-width: 768px){
+@media screen and (min-width: 501px){
     .admin-box-order{
         display: flex;
         flex-direction: column;
@@ -1087,6 +1176,31 @@ form{
     .box-btn{
         font-size: small;
     }
+    .hamburger{
+        display: none;
+    }
+    .headerIndex{
+        height: 500px;
+        min-height: 500px;
+    }
+    .titleIndex{
+        padding: 20px;
+        opacity: 0.5;
+        background-color: transparent;
+        margin-top: -20%;
+        position: relative;
+        animation: Arthusen_ 2s;
+        font-size: 40px;
+    }
+    .h1-header{
+        font-size: 30px;
+        top: 32%;
+    }
+
+    @keyframes Arthusen_ {
+        from {top: -200px;}
+        to {top: 0}
+      }
 }
 @media screen and (max-width: 500px){
     @keyframes Arthusen_ {
@@ -1097,42 +1211,25 @@ form{
     .nav{
         display: flex;
         flex-direction: column;
+        text-align: center;
+        position: fixed;
+        left: -110%;
+        top: 300px;
+        gap: 0;
         width: 100%;
+        transition: .6s;
+        padding-left: 10%;
+        z-index: 5;
     }
 
-    ul{
-        overflow: hidden;
-        position: relative;
+    .navbar{
+        width: 100%;
+        background-color: var(--color-primary);
     }
 
-    ul .dropdown {
-        display: none;
-      }
-
-    ul a {
-        display: block;
-    }
-
-
-
-    .hamburger{
-        display: block;
+     .hamburger{
         z-index: 2;
     }
-
-    .hamburger.active .bar:nth-child(2){
-        opacity: 0;
-    }
-
-    .hamburger.active .bar:nth-child(1){
-        transform: translateY(-8px) rotate(45deg);
-    }
-
-    .hamburger.active .bar:nth-child(3){
-        transform: translateY(8px) rotate(45deg);
-    }
-
-
 
     .headerIndex{
         height: 300px;
@@ -1154,7 +1251,7 @@ form{
         font-size: 20px;
     }
 
-    .dropdown{
+     .dropdown{
         background-color: rgb(242, 235, 237);
     }
 
@@ -1171,7 +1268,7 @@ form{
         margin-top: 3%;
         padding-left: 20%;
         font-size: 15px;
-    }
+    } 
 
     .startsida-container{
         display: flex;
@@ -1195,6 +1292,7 @@ form{
     }
     .form-contaus{
         width: 85%;
+        height: auto;
     }
     .footer{
         display: flex;
@@ -1230,5 +1328,40 @@ form{
     height: 500px;
     min-height: 500px;
     }  
+    .admin-users-box,
+    .form-login{
+        width: 90%;
+    }
+    .admin-user-card{
+        width: 90%;
+    }
+    .admin-orders-master{
+        display: flex;
+        flex-direction: column;
+    }
+    .admin-orders-container{
+        width: 90%;
+    }
+    .admin-box,
+    .admin-box-left,
+    .admin-box-right{
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        text-align: left;
+    }
+    .admin-order-delete{
+        margin-left: 0;
+    }
+    .grid-container{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .accordion-container,
+    .accordion-head{
+        width: 90%;
+        font-size: 15px;
+    }
 }
 

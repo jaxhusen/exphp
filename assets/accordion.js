@@ -1,4 +1,4 @@
-
+/* kod för accordion i /pages/qanda.php */
 var acc = document.getElementsByClassName("accordion-head");
 var i;
 
