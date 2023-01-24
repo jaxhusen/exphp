@@ -1,4 +1,6 @@
 <?php
+/* samma kod och förklaringar som på /pages/find-us.php bara att du har ett 
+meddelande på rad 28 där avståndet mellan valda koordinater och kontoret står */
  $office = "Gran Canaria, youmbo center";
  $distance ="";
  $lat2 = 27.758183;

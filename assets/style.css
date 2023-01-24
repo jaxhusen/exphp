@@ -172,7 +172,7 @@ header{
 }
 
 
-.nav{
+ul{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -184,7 +184,7 @@ header{
 
 
 
-.nav a{
+ul a{
     color: var(--color-heading);
     text-decoration: none;
     padding: 2%;
@@ -194,7 +194,7 @@ header{
     font-weight: 500;
 }
 
- .nav a:hover {
+ul a:hover {
     color: black;
 } 
 
@@ -686,7 +686,6 @@ h5{
     display: flex;
     flex-direction: row;
     white-space: nowrap;
-
 }
 
 .admin-box-rightt{
@@ -975,7 +974,7 @@ form{
 .accordion.active+.panel {
     display: block;
 }
-/* ---------------- */
+/* ---------------- --------------------- */
 
 .p-text{
     font-size: medium;
@@ -988,6 +987,24 @@ form{
     color: red;
     text-transform: uppercase;
     font-size: medium;
+}
+
+
+.bar{
+    display: block;
+    width: 25px;
+    height: 3px;
+    top: 0;
+    left: 0;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    background-color: var(--color-primary);
+}
+
+.hamburger{
+    display: none;
+    cursor: pointer;
+    color: var(--color-heading);
 }
 
 
@@ -1005,12 +1022,20 @@ form{
     opacity: 0.8; }
 
 
-
-
-
-
 /* ------------------- MQ ------------------- */
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1500px) {
+    .admin-box{
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        align-items: flex-start;
+    }
+    .admin-order-delete{
+        margin-left: 0%;
+    }
+}
+
+@media screen and (max-width: 1100px) {
     .form-login{
         width: 60%;
     }
@@ -1072,8 +1097,43 @@ form{
     .nav{
         display: flex;
         flex-direction: column;
-        width: 92%;
+        width: 100%;
     }
+
+    ul{
+        overflow: hidden;
+        position: relative;
+    }
+
+    ul .dropdown {
+        display: none;
+      }
+
+    ul a {
+        display: block;
+    }
+
+
+
+    .hamburger{
+        display: block;
+        z-index: 2;
+    }
+
+    .hamburger.active .bar:nth-child(2){
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1){
+        transform: translateY(-8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3){
+        transform: translateY(8px) rotate(45deg);
+    }
+
+
+
     .headerIndex{
         height: 300px;
         min-height: 300px;

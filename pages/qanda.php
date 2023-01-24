@@ -8,32 +8,32 @@
 </head>
 <body>
 <?php
+/* Läser in Template för basinfo, UsersDb för att kunna använda den infon */
 require_once __DIR__ . "/../classes/Template.php";
 require_once __DIR__ . "/../classes/UsersDb.php";
 
 
-Template::header("Mitt konto");
+Template::header("");
 ?>
 
 <h2 class="admin-heading">Q and A</h2>
 <hr style="margin:.7%;">
 
+<!-- accordion funktioner läses in via accordion.js som är kopplat längre ner på sidan -->
 <div class="accordion-container">
-    <button class="accordion-head">Section 1</button>
+    <button class="accordion-head">Hur lång leveranstid är det?</button>
     <div class="accordion-text">
         <p class="inside-accordion">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
-    <button class="accordion-head">Section 2</button>
+    <button class="accordion-head">Kan man lägga önskemål på tavlor?</button>
     <div class="accordion-text">
         <p class="inside-accordion">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
-    <button class="accordion-head">Section 3</button>
+    <button class="accordion-head">Hur får man jobb hos er?</button>
     <div class="accordion-text">
         <p class="inside-accordion">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
 </div>
-
-
 
 <script src="/../assets/accordion.js"></script>
 

@@ -1,16 +1,17 @@
 <?php
+/* Läser in Template för basinfo, UsersDb för att kunna använda den infon */
 require_once __DIR__ . "/../classes/Template.php";
 require_once __DIR__ . "/../classes/UsersDb.php";
 
-
+/* kallar på koden för att hämta en user eftersom att denna sida är på en single-user */
 $user_db = new UsersDb();
 $user = $user_db->get_one_by_username($_GET["username"]);
 
-Template ::header("Admin-user");
+Template ::header("");
 ?>
 
 
-
+<!-- form för att kunna uppdatera roll eller radera produckten via ID -->
 <div class="admin-update">
 <div class="admin-update-box">
     <div class="one">

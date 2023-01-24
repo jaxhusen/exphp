@@ -1,4 +1,5 @@
 <?php
+/* Kopplingen för user tablet i orderinfo-db */
 class User{
     public $id;
     public $username;
@@ -14,6 +15,7 @@ class User{
         $this->role = $role;
     }
 
+    
     public function hash_password($password){
         $this->password_hash = password_hash($password, null);
     }

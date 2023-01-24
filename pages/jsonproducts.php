@@ -1,3 +1,4 @@
+<!-- läser in basic info via Template coh hämtar products.json via fetch och loopar igenom resultatet som går att hitta på fliken REA-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,15 +11,13 @@
 
 <?php
 require_once __DIR__ . "/../classes/Template.php";
-Template::header("Produkter");
+Template::header("");
 ?>
 
 
     <div class="grid-container"></div>
 <script>
-        /* https://www.youtube.com/watch?v=zUcc4vW-jsI
-            https://www.youtube.com/watch?v=3o0wh3Su3Mo */
-        //fetchat api me products
+        //fetchat api me products.json
         fetch('../products.json')
             .then(res => {
                 return res.json();
@@ -44,16 +43,6 @@ Template::header("Produkter");
             
             .catch(error => console.log(error));
     </script> 
-
-<!-- 
-                        <form /* action="/scripts/post-add-to-cart.php" */ method="post">
-                            <input type="hidden" name="product-id" value="<?= $product->id ?>">
-                            <input class="box-btn" type="submit" value="Lägg till i varukorg">
-                        </form>
-
- -->
-
-
         <?php
 
 Template::footer();

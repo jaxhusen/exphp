@@ -1,4 +1,5 @@
 <?php
+/* Läser in Template för basinfo, UsersDb för att kunna använda den infon */
 require_once __DIR__ . "/../classes/Template.php";
 require_once __DIR__ . "/../classes/UsersDb.php";
 
@@ -6,7 +7,7 @@ require_once __DIR__ . "/../classes/UsersDb.php";
 Template::header("Logga in");
 ?>
 
-
+<!-- Om du skriver in fel anv namn eller lösen på login.php skcikas du hit med felmeddelande på rad 13 -->
 <div class="form-container">
 <form class="form-login" action="/scripts/post-login.php" method="post">
     <h2 class="wrong">Fel användarnamn eller lösenord</h2>

@@ -1,5 +1,5 @@
 <?php
-
+/* Denna fil kopplar ihop localhost med min sql databas i phpmyadmin vid namn 'orderinfo-db' */
 class Db{
     private $host = "localhost";
     private $user = "root";
@@ -13,8 +13,6 @@ class Db{
         $this->conn = mysqli_connect($this->host, $this->user, $this->pass, $this->db);
         if(!$this->conn){
             die("Error connecting to db");
-        }/*  else{
-            echo"connected successfully";
-        }  */
+        }
     }
 }

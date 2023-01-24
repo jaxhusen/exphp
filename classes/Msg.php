@@ -1,5 +1,5 @@
 <?php 
-
+/* Kopplingen för meddelande tablet i orderinfo-db */
 Class Msg {
     public $id;
     public $username;

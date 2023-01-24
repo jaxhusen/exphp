@@ -1,22 +1,18 @@
 <?php
-
 require_once __DIR__ . "/Db.php";
 require_once __DIR__ . "/Order.php";
-
-
+/* Läser in databas- filen
++ order filen för att kunna använda den*/
 
 class OrdersDb extends Db{
-
-//get_one
- public function get_one_by_userid($user_id){
-    {
+    //function för att hämta en order från order-products och kopplas ihop med order-users för att få fram rätt info
+    public function get_one_by_userid($user_id){
         $query = "SELECT op.id, op.`order-id`, os.`user-id`, os.`order-date`, os.`status` 
         FROM `order-products` AS op
         JOIN `order-users` AS os ON op.`order-id` = os.id 
         JOIN users AS u ON os.`user-id` = u.id
         WHERE os.`user-id` = ?/* 
         group by  op.`order-id` */";
-
 
         $stmt = mysqli_prepare($this->conn, $query);
         $stmt->bind_param("i", $user_id);
@@ -36,13 +32,10 @@ class OrdersDb extends Db{
         }
         return $orders;
     }
-}
 
 
-
-
-//get_all
-public function get_all(){
+    //kod för functionen hämta alla orders från table order-users
+    public function get_all(){
     $query = "SELECT * FROM `order-users`";
     $stmt = mysqli_prepare($this->conn, $query);
     $stmt->execute();
@@ -60,28 +53,23 @@ public function get_all(){
         );
     }
     return $orders;
-}
+    }
 
 
-
-
-
-    //create
+    //U i crud för nya orders som läggs i table order-users
     public function create(Order $order)
     {
         $query = "INSERT INTO `order-users` (`user-id`, `status`, `order-date`) VALUES (?,?,?)";
         $stmt = mysqli_prepare($this->conn, $query);
         $stmt->bind_param("iss", $order->user_id, $order->status, $order->order_date);
         $success = $stmt->execute();
-
         if ($success) {
             return $stmt->insert_id;
         }
         return false;
     }
 
-
-
+    //U i crud för nya orders som läggs i table kopplingtabellen order-products
     public function create_order($order_id, $product_id)
     {
         $query = "INSERT INTO `order-products` (`order-id`, `product-id`) VALUES (?,?)";
@@ -93,23 +81,19 @@ public function get_all(){
     }
 
 
+    //update status via id och status i table order-users
+    public function update_order_status($id, $status)
+    {
+        $query = "UPDATE `order-users` SET `status` = ? WHERE `id` = ?";
+        $stmt = mysqli_prepare($this->conn, $query);
+        $stmt->bind_param("si", $status, $id);
+        $success = $stmt->execute();
+
+        return $success;
+    }
 
 
-//update status
-public function update_order_status($id, $status)
-  {
-      $query = "UPDATE `order-users` SET `status` = ? WHERE `id` = ?";
-      $stmt = mysqli_prepare($this->conn, $query);
-      $stmt->bind_param("si", $status, $id);
-      $success = $stmt->execute();
-
-      return $success;
-  }
-
-
-
-
-    //delete
+    // kod till funktion för att radera order via id i table `order-users`
     public function delete($id)
     {
         $query = "DELETE FROM `order-users` WHERE id = ?";
@@ -119,7 +103,6 @@ public function update_order_status($id, $status)
 
         return $success;
     }
-
 
 
 }

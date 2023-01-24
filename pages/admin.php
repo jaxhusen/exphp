@@ -1,4 +1,5 @@
 <?php
+/* Läser in Template för basinfo, ProductsDb + UsersDb + OrdersDb + MsgDb för att kunna använda den infon */
 require_once __DIR__ . "/../classes/Template.php";
 require_once __DIR__ . "/../classes/ProductsDb.php";
 require_once __DIR__ . "/../classes/UsersDb.php";
@@ -10,29 +11,32 @@ $is_logged_in = isset($_SESSION["user"]);
 $logged_in_user = $is_logged_in ? $_SESSION["user"] : null;
 $is_admin = $is_logged_in && $logged_in_user->role == "admin";
 
-
-if (!$is_admin) { //om dom inte är admin
+//om dom inte är admin
+if (!$is_admin) { 
     http_response_code(401); // access denied
     die("Access denied!!");
 }
 
+/* kallar på koden för att hämta alla meddelanden*/
 $msg_db = new MsgDb();
 $messages = $msg_db->get_all_msg(); 
 
+/* kallar på koden för att hämta alla användare*/
 $users_db = new UsersDb();
 $users = $users_db->get_all();
 
-
+/* kallar på koden för att hämta alla prodkter*/
 $products_db = new ProductsDb();
 $products = $products_db->get_all();
 
-
+/* kallar på koden för att hämta alla ordrar*/
 $orders_db = new OrdersDb();
 $orders = $orders_db->get_all();
 
 
 Template::header("Admin sida"); ?>
 
+<!-- Kod för att skapa en ny product och sen skcikas till sidan 'post-create-product.php' -->
  <h2 class="admin-heading"> Skapa produkt </h2>
  <hr style="margin:.7%;">
  <div class="form-container">
@@ -46,7 +50,7 @@ Template::header("Admin sida"); ?>
 </form> 
 </div>
 
-
+<!-- Kod för att lista alla produkter  -->
 <h2 class="admin-heading"> Produkter </h2>
 <hr style="margin:.7%;">
 <div class="admin-users">
@@ -66,7 +70,7 @@ Template::header("Admin sida"); ?>
 </div>
 </div>
 
-
+<!-- Kod för att lista alla användare  -->
 <h2 class="admin-heading"> Användare </h2>
 <hr style="margin:.7%;">
 <div class="admin-users">
@@ -86,7 +90,7 @@ Template::header("Admin sida"); ?>
 </div>
 
 
-
+<!-- Kod för att lista alla ordrar  -->
 <h2 class="admin-heading">Alla ordrar</h2>
 <hr style="margin:.7%;">
 <div class="admin-orders-master">
@@ -104,6 +108,7 @@ Template::header("Admin sida"); ?>
             </div>
         </div>
 
+<!-- Kod för att uppdatera status på order och sen skickar till 'post-update-order.php'  -->
         <div class="admin-box">
             <div class="admin-box-right">
             <form action="/scripts/post-update-order.php" method="post" class="row">
@@ -117,6 +122,7 @@ Template::header("Admin sida"); ?>
             </form>
             </div>
             
+<!-- Kod för att raders en order och sen skickar till 'post-delete-order.php'  -->
             <div class="admin-box-right">
                 <form action="/scripts/post-delete-order.php" method="post">
                     <input type="hidden" name="id" value="<?= $order->id ?>">
@@ -131,7 +137,7 @@ Template::header("Admin sida"); ?>
 </div>
 
 
-
+<!-- Kod för att lista alla meddelanden  -->
 <h2 class="admin-heading">Alla meddelanden</h2>
 <hr style="margin:.7%;">
     <div class="admin-orders-master">
@@ -154,6 +160,7 @@ Template::header("Admin sida"); ?>
                 </div>
             </div>
 
+<!-- Kod för att uppdatera status på meddelande och sen skickar till 'post-update-message.php'  -->
             <div class="admin-box">
             <div class="admin-box-right">
             <form action="/scripts/post-update-message.php" method="post" class="row">

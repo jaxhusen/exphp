@@ -1,10 +1,12 @@
 <?php
 require_once __DIR__ . "/Db.php";
 require_once __DIR__ . "/Product.php";
+/* Läser in databas- filen
++ product filen för att kunna använda den*/
 
 class ProductsDb extends Db
 {
-    //get_one
+    //function för att hämta en product från table products
     public function get_one($id){
         $query = "SELECT * FROM products WHERE id = ?";
         $stmt = mysqli_prepare($this->conn, $query);
@@ -13,7 +15,6 @@ class ProductsDb extends Db
         $result = $stmt->get_result();
         $db_product = mysqli_fetch_assoc($result);
         $product = null;
-
 
         if($db_product){
             $product = new Product(
@@ -26,7 +27,7 @@ class ProductsDb extends Db
             return $product;
     }
 
-    //get_all
+    //kod för functionen hämta alla producter från products
     public function get_all()
     {
         $query = "SELECT * FROM products";
@@ -45,7 +46,7 @@ class ProductsDb extends Db
         return $products;
     }
 
-    //create
+    //create product i table products
     public function create(Product $product)
     {
         $query = "INSERT INTO products (title, price, `img-url`) VALUES (?,?,?)";
@@ -57,7 +58,7 @@ class ProductsDb extends Db
     }
 
 
-    //update
+    //uppdatera status på produckter i table product
     public function update(Product $product, $id){
         $query = "UPDATE products SET `title` = ?, price = ?, `img-url` = ? WHERE id = ?";
         $stmt = mysqli_prepare($this->conn, $query);
@@ -73,7 +74,7 @@ class ProductsDb extends Db
 
 
 
-    //delete
+    //delete en product från table products via id
     public function delete($id)
     {
         $query = "DELETE FROM products WHERE id = ?";
@@ -84,6 +85,7 @@ class ProductsDb extends Db
     }
 
 
+    //koppling mellan order-products + users + product för att få fram rätt info
     public function get_by_orderid($order_id)
     {
         $query = "SELECT op.id,
@@ -100,8 +102,6 @@ class ProductsDb extends Db
         JOIN users AS u ON os.`user-id` = u.id
         JOIN products AS p ON op.`product-id` = p.id
         WHERE op.`order-id` = ?";
-
-
 
         $stmt = mysqli_prepare($this->conn, $query);
         $stmt->bind_param("i", $order_id);

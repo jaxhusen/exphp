@@ -1,5 +1,5 @@
 <?php
-
+/* Kopplingen för order tablet i orderinfo-db */
 class Order{
     public $id;
     public $user_id;

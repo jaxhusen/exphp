@@ -1,5 +1,5 @@
 <?php
-
+/* Kopplingen för product tablet i orderinfo-db */
 class Product{
     public $id;
     public $title;

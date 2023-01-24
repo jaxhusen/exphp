@@ -1,4 +1,5 @@
 <?php
+/* Läser in Template för basinfo, ProductsDb + usersDb + OrdersDb för att kunna använda den infon */
 require_once __DIR__ . "/../classes/Template.php";
 require_once __DIR__ . "/../classes/OrdersDb.php";
 require_once __DIR__ . "/../classes/UsersDb.php";
@@ -9,6 +10,7 @@ $logged_in_user = $is_logged_in ? $_SESSION['user'] : null;
 
 Template::header("Order page");
 
+/* funktion för att hämta varje order på mitt user ID */
 $orders_db = new OrdersDb();
 $orders = $orders_db->get_one_by_userid($logged_in_user->id);
 
@@ -18,33 +20,33 @@ $all_products = [];
 $order_value = 0;
 ?>
 
-
-<?php
-if ($is_logged_in && $order_value > 0) : ?>
-<h2 class="admin-heading">Mina beställningar</h2>
-</div>
-<?php endif; ?>
-
-
-<?php
-if (!$is_logged_in && $order_value <= 0) : ?>
+<!-- om count $orders är lika med noll så ska della kod visas -->
+<?php if (count($orders) == 0) : ?>
+    <?php if ($is_logged_in) : ?>
     <div class="empty-cart">
         <a class="link-oops" href="/pages/products.php">Ooops... Här var det tomt. Gå till produkter</a>
     </div>
-<?php endif; ?> 
+    <?php endif; ?>
+<?php endif; ?>
 
 
-
+<!-- om ingen är inloggad så visas denna kod med länk till login.php -->
 <?php
 if (!$is_logged_in) : ?>
-    <a class="users-name" href="/pages/register.php"><p class="users-name" style="text-decoration=none; ">Logga in för att lägga beställning</p></a>
+    <a class="users-name" href="/pages/login.php"><p class="users-name" style="text-decoration=none; ">Logga in för att lägga beställning</p></a>
 <?php endif; ?>
 <br>
 
 
+<!-- om count $orders är större än noll så visas denna kod med alla orders på det inloggade IDt -->
+<?php if (count($orders) > 0) : ?>
+    <?php if ($is_logged_in) : ?>
 <h2 class="admin-heading">Mina ordrar:</h2>
 <hr style="margin:.7%;">
 <div class="admin-content-center">
+
+
+
 <?php foreach ($orders as $order) : ?>
     <div class="admin-orders-container">
     <div class="admin-box-order">
@@ -59,6 +61,7 @@ if (!$is_logged_in) : ?>
     </div>
 
 
+
     
 
     <?php 
@@ -68,8 +71,6 @@ if (!$is_logged_in) : ?>
     $order_value += $product->price;
     } ?>
 
-
-    <!-- loopar genom summan för varje order -->
     <?php foreach ($products as $product) : ?>
         <hr>
     <?php array_push($all_products, $product); ?>
@@ -78,12 +79,12 @@ if (!$is_logged_in) : ?>
         <p class="users-order"><?= $product->title ?></i></p>
     </div>
     <div class="admin-box-right">
-        <img src="<?= $product->img_url ?>" width="50" height="50" alt="Produkt bild">
+        <img src="<?= $product->img_url ?>" width="50" height="50" alt="Arthusen_">
     </div>
     </div>
     <?php endforeach; ?>
 
-
+<!-- räknar ut totalen för varje order -->
 <hr>
     <p class="users-role h4-pad"><b> Totalt:
     <?= $order_value ?> kr</b></p>
@@ -104,7 +105,8 @@ if ($is_logged_in && $order_value > 0) : ?>
             })  ?> Kr </h2>
 </div>
 <?php endif; ?>
-
+    <?php endif; ?>
+<?php endif; ?>
 
 
 

@@ -1,9 +1,12 @@
-/* Toggle between showing and hiding the navigation menu links when the user clicks on the hamburger menu / bar icon */
-function myFunction() {
-    var x = document.getElementsByClassName('dropdown');
-    if (x.style.display === "block") {
-      x.style.display = "none";
-    } else {
-      x.style.display = "block";
-    }
-  } 
+const hamburger = document.querySelector(".hamburger");
+const nav = document.querySelector(".nav");
+
+hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    nav.classList.toggle("active");
+})
+
+document.querySelectorAll(".nav").forEach(n => n.addEventListener("click", () =>{
+    hamburger.classList.remove("active");
+    nav.classList.remove("active");
+}))

@@ -1,6 +1,5 @@
 <?php
-
-//ladda in klasse
+/*  Product + ProductDb för att kunna använda den infon */
 require_once __DIR__ . "/../classes/ProductsDb.php";
 require_once __DIR__ . "/../classes/Product.php";
 
@@ -8,9 +7,10 @@ require_once __DIR__ . "/../classes/Product.php";
 session_start();
 
 if(isset($_POST["product-id"])){
-    //hämta producter (från databasen) vi klickat på
+    //hämta en product från PRoductDb vi klickat på
     $products_db = new ProductsDb();
     $product = $products_db->get_one($_POST["product-id"]);
+
 
     //skapa varukorg om den inte finns
     if(!isset($_SESSION["cart"])){
@@ -28,6 +28,6 @@ if(isset($_POST["product-id"])){
 
 
 }else{
-    die("Invalid input");
+    die("Felaktig inmatning");
 }
-die("Error adding product to cart");
+die("Kunde inte spata produkt i varukorg");

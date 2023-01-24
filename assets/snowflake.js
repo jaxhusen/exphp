@@ -1,4 +1,4 @@
-(function() {
+/* (function() {
 
     var width, height, largeContainer, canvas, ctx, circles, target, animateHeader = true;
 
@@ -89,4 +89,4 @@
         };
     }
 
-})();
+})(); */

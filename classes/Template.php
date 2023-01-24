@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . "./User.php";
 session_start();
-
+/*  all bas info som ska synas på flera sidor skrivs här */
 
 class Template
 {
@@ -99,7 +99,8 @@ public static function index($title)
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="/./assets/style.css">
-<!--             <script src="https://kit.fontawesome.com/b5e1c569b8.js" crossorigin="anonymous"></script> -->
+            <script src="https://kit.fontawesome.com/b5e1c569b8.js" crossorigin="anonymous"></script>
+            <script src="/../assets/burgermeny.js"></script>
             <title> <?= $title ?></title>
         </head>
         <body>
@@ -107,16 +108,22 @@ public static function index($title)
                 <h1 class="titleIndex"> <?= $title ?> </h1>
             </div>
 
-            <ul class="nav">
-                    <div class="dropdown">
+                <div class="nav">
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                    <ul>
+                   <div class="dropdown"> 
                         <a href="/" class="drop-head">Startsida</a>
                         <div class="dropdown-content">
                             <a href="/pages/message.php">Kontakta oss</a>
-                            <a href="/pages/about-us.php">Om oss</a>
+<!--                             <a href="/pages/about-us.php">Om oss</a> -->
                             <a href="/pages/find-us.php">Hitta hit</a>
                             <a href="/pages/qanda.php">Vanliga frågor</a>
-                        </div>
-                    </div>
+                        </div> 
+                   </div> 
                     <div class="dropdown">
                         <a href="/pages/products.php" class="drop-head">Produkter</a>
                         <div class="dropdown-content">
@@ -145,6 +152,7 @@ public static function index($title)
                         <a href="/../pages/admin.php">Admin sida</a>
                     <?php endif; ?> 
                 </ul>
+                    </div>
 
 
             <main>
@@ -171,7 +179,7 @@ public static function index($title)
                 <div class="footer-one">
                     <div class="div-headern"> Kontakt </div>
                     <a href="./pages/message.php">Kontakta oss</a>
-                    <a href="#">Vanliga frågor</a>
+                    <a href="./pages/qanda.php">Vanliga frågor</a>
                     <a href="#">Om oss</a>
                 </div>
 
@@ -185,8 +193,8 @@ public static function index($title)
                 <a href="mailto:#">kontakta-oss@arthusen.com</a>
                 <div class="adress">
                     <p>Youmbo Center 26</p>
-                    <p>Playa del Ingles, 12345</p>
-                    <p>Gran Canaria</p>
+                    <p style="padding-top: 1%">Playa del Ingles, 12345</p>
+                    <p style="padding-top: 1%">Gran Canaria</p>
                 </div>
                 </div>
             </footer>

@@ -1,5 +1,5 @@
 <?php
-$office = "Gran Canaria, youmbo center"
+$office = "Gran Canaria, yumbo center"
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +7,6 @@ $office = "Gran Canaria, youmbo center"
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./assets/snowflake.js"></script> 
     <title>ARThusen</title>
 </head>
 <body>
@@ -19,6 +18,7 @@ session_start();
 $is_logged_in = isset($_SESSION['user']);
 $logged_in_user = $is_logged_in ? $_SESSION['user'] : null;
 
+//template index för att få en liten annorlunda utseende, via Template
 Template::index('ARThusen_');
  
 
@@ -45,7 +45,7 @@ Template::index('ARThusen_');
             </p>
     </div>
 
-
+<!-- bilderna tar dig till REA samt produkter vid click -->
     <div class="startsida-container">
         <div class="startsida-box-2">
             <a href="/../pages/jsonproducts.php" class="img-startsida">[ REA ]</a>
@@ -57,19 +57,23 @@ Template::index('ARThusen_');
 
 
     <div class="startsida-banner">Kontakta oss</div>
-        <p class="p-text-startsida" style="margin-bottom:2%;color: var(--color-heading); padding: 5%;"><b>Har du något på hjärtat? </b> Tveka inte på att höra av dig. Vi finns här för dig. Som en hjälpande hand, partner in crimer eller vill du helt enkelt bara diskutera konst?
+    <div class="text-startsida">
+        <p class="p-textunder-startsida" style="margin-bottom:2%;color: var(--color-heading);"><b>Har du något på hjärtat? </b> Tveka inte på att höra av dig. Vi finns här för dig. Som en hjälpande hand, partner in crimer eller vill du helt enkelt bara diskutera konst?
             Vi ser fram emot att höra från dig. Återkoppling sker oftast inom 3-6 arbetsdagar då vi har högt tryck under vinter halvåret. Är ditt ärende akut? Ring gärna vår kundtjänst på <b> 070-000 00 00</b>. 
             Vill du inte mejla? Du är välkommen att kika förbi vårt kontor i Youmbo Center mitt i soliga Playa del Ingles på Gran Canaria. Kom in och ta en pause från vardagen, fika står vi för! Välkommen.
-        </p></br>
+        </p>
+</div>
 
 <?php
 if ($is_logged_in) : ?>
+<!--  om du är inloggad visas ett vanligt kontaktfält, som skickar dig till success-msg-sent.php precis som om du skrivit det i message.php
+och en karta till kontoret på gran canaria via $office som deklareras högst upp i filen-->
 <div class="div-space-between">
-        <form class="form-contaus" action="/scripts/post-contactus.php" method="post" enctype="multipart/form-data">
+        <form class="form-contaus" action="/pages/success-msg-sent.php" method="post" enctype="multipart/form-data">
             <h4 class="h4-pad" style="color: var(--color-heading);font-size: larger;">Kontakta oss här:</h4>
             </br>
-            <input class="form-input" type="name" name="name" placeholder="Namn">
-            <textarea class="form-input" name="textarea" placeholder="Textarea"  style="margin-top: 2%"></textarea>
+            <input class="form-input" type="text" name="username" placeholder="Användarnamn">
+            <textarea class="form-input" name="message" placeholder="Skriv ditt meddelande / önskemål här"  style="margin-top: 2%"></textarea>
             <div class="form-btns" style="margin-top: 2%">
                 <input class="user-regitration" type="submit" value="Skicka">
             </div>
@@ -78,14 +82,18 @@ if ($is_logged_in) : ?>
         <iframe class="map" src="https://www.google.com/maps?q=<?php echo $office;?>&output=embed"></iframe>
     </div>
 </div>
+
+
+
 <?php else: ?>
     <?php if (!$is_logged_in) : ?>
-
+<!--  om du inte är inloggad visas ett grått kontaktfält men en text att du behöver logga in för att skicka meddelande
+och en karta till kontoret på gran canaria via $office som deklareras högst upp i filen-->
         <div class="div-space-between">
-        <form class="form-contaus" action="/scripts/post-contactus.php" method="post" enctype="multipart/form-data">
-        <div class="empty-cart"style="padding-top: 0%; height: 70px;">
-        <a class="link-oops" href="/pages/login.php"></i>Logga in för att skicka meddelande</a>
-        </div></br>
+        <form class="form-contaus" method="post" enctype="multipart/form-data">
+            <div class="empty-cart"style="padding-top: 0%; height: 70px;">
+                <a class="link-oops" href="/pages/login.php"></i>Logga in för att skicka meddelande</a>
+            </div></br>
             <input class="form-input disabled" type="name" name="name" placeholder="Namn">
             <textarea class="form-input disabled" name="textarea" placeholder="Textarea"  style="margin-top: 2%"></textarea>
             <div class="form-btns disabled" style="margin-top: 2%">

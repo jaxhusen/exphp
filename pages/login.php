@@ -1,12 +1,14 @@
 <?php
+/* Läser in Template för basinfo, UsersDb för att kunna använda den infon */
 require_once __DIR__ . "/../classes/Template.php";
 require_once __DIR__ . "/../classes/UsersDb.php";
 
 
-Template::header("Logga in");
+Template::header("");
 ?>
 
-
+<!-- Form för att logga in användare, if success -> post-login  -->
+<!-- Om du har skapat ett konto på register.php så visas success meddelandet på rad 16 -->
 <div class="form-container">
 <form class="form-login" action="/scripts/post-login.php" method="post">
 <?php

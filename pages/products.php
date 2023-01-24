@@ -1,15 +1,18 @@
 <?php
+/* Läser in Template för basinfo, Product + ProductDb för att kunna använda den infon */
 require_once __DIR__ . "/../classes/Product.php";
 require_once __DIR__ . "/../classes/ProductsDb.php";
 require_once __DIR__ . "/../classes/Template.php";
 
-
+/* läser in alla produkter via Product */
 $products_db = new ProductsDb();
 $products = $products_db->get_all();
 
 Template::header("Products");
 ?>
 
+<!-- loopar genom alla produkter med zoom effect,
+ett form för när du klickar på ADD TO CART så skickas du till post-add-to-cart.php -->
 <div class="grid-container"> 
 <?php foreach ($products as $product) : ?>
     <div class="grid-card">
