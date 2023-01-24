@@ -227,7 +227,6 @@ header{
 
 .img-startsida,
 .img-startsida-2{
-    height: 600px;
     min-height: 800px;
     height: 800px;
     display: flex;
@@ -863,12 +862,10 @@ form{
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     padding: 7% 5%;
-
     bottom:0;
     width: 90%;
 }
@@ -978,7 +975,20 @@ form{
 .accordion.active+.panel {
     display: block;
 }
+/* ---------------- */
 
+.p-text{
+    font-size: medium;
+    text-transform: uppercase;
+    color: var(--color-heading);
+    padding: 1%;
+}
+
+.distance{
+    color: red;
+    text-transform: uppercase;
+    font-size: medium;
+}
 
 
 /* ------------------- JS ------------------- */
@@ -1053,6 +1063,112 @@ form{
         font-size: small;
     }
 }
-@media screen and (max-width: 768px){
+@media screen and (max-width: 500px){
+    @keyframes Arthusen_ {
+        from {top: -300px;}
+        to {top: 0}
+      }
 
+    .nav{
+        display: flex;
+        flex-direction: column;
+        width: 92%;
+    }
+    .headerIndex{
+        height: 300px;
+        min-height: 300px;
+    }
+    .titleIndex{
+        padding: 20px;
+        opacity: 0.5;
+        background-color: transparent;
+        margin-top: -8%;
+        position: relative;
+        animation: Arthusen_ 2s;
+        font-size: 30px;
+    }
+
+    .h1-header {
+        top: 20%;
+        padding-top: 3%;
+        font-size: 20px;
+    }
+
+    .dropdown{
+        background-color: rgb(242, 235, 237);
+    }
+
+    .dropdown-content {
+        width: 109%;
+        z-index: 1;
+        margin-top: 0%;
+        padding: 0%;
+        border-bottom: 1px solid var(--color-heading);
+        background-color: rgb(242, 235, 237);
+    }
+    .dropdown-content a {
+        padding-top: 0;
+        margin-top: 3%;
+        padding-left: 20%;
+        font-size: 15px;
+    }
+
+    .startsida-container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .startsida-box-2,
+    .startsida-box{
+        width: 95%;
+        height: 500px;
+    }
+    .div-space-between{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+    }
+    .del-50{
+        width: 95%;
+        margin: 0;
+    }
+    .form-contaus{
+        width: 85%;
+    }
+    .footer{
+        display: flex;
+        flex-direction: column;
+    }
+    .div-headern{
+        margin-top: 2%;
+        font-size: 15px;
+        padding-bottom: 0;
+    }
+    .footer-two{
+        display: flex;
+        flex-direction: column;
+        font-size: 10px;
+        margin-top: -30%;
+        padding-bottom: 5%;
+        z-index: 0;
+    }
+    .footer-one a,
+    .footer-two a{
+    padding-top: 0;
+    font-size: 10px;
+    z-index: 22;
+    }
+    .p-text-startsida,
+    .p-textunder-startsida{
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .img-startsida,
+    .img-startsida-2{
+    width: 95%;
+    height: 500px;
+    min-height: 500px;
+    }  
 }
+
