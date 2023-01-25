@@ -8,9 +8,7 @@ $products = isset($_SESSION["cart"]) ? $_SESSION["cart"] : [];
 $total_sum = array_sum(array_column($products, 'price'));
 $is_logged_in = isset($_SESSION["user"]);
 
-
 Template::header(""); ?>
-
 
 <!-- om du  är inloggad men carten är tom, klicka på länken så kommer du till produkter -->
 <?php if (count($products) == 0) : ?>

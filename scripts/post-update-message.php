@@ -15,7 +15,7 @@ $success = $message_db->update_message_status($_POST["id"], $_POST["status"]);
 }
 
 if($success){
-    header("Location: /pages/admin.php");  //om allt är OK så skickas du till admin.php
+    header("Location: /pages/admin-messages.php");  //om allt är OK så skickas du till admin.php
     die();
 }else{
     die("Fel vid uppdatering av meddelande"); // annars error

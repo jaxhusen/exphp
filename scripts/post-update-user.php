@@ -16,7 +16,7 @@ else{
     die("Felaktig inmatning");
 }
 if($success){
-    header("Location: /pages/admin.php");//om allt är OK så skickas du till admin.php
+    header("Location: /pages/admin-users.php");//om allt är OK så skickas du till admin.php
     die();
 }
 else{

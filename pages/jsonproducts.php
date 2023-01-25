@@ -35,7 +35,7 @@ Template::header("");
                             <img src="${product.productImg}" alt="Bild" class="img zoom-img">
                         </div>
                         <input type="hidden" name="product-id" value="<?= $product->id ?>">
-                        <input class="box-btn" type="submit" value="Lägg till i varukorg">
+                        <input class="box-btn add" type="submit" value="Lägg till i varukorg">
                         </div>`
                     document.querySelector('.grid-container').insertAdjacentHTML('beforeend', productCard);
                 });

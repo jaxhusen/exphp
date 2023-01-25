@@ -16,7 +16,7 @@ if(isset($_POST["id"])){
 
 
 if($success){
-    header("Location: /pages/admin.php");//om du lyckas skickas du tillbaks till admin
+    header("Location: /pages/admin-products.php");//om du lyckas skickas du tillbaks till admin
     die();
 }else{
     die("Kunde inte ta bort produkt");

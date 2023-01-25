@@ -23,7 +23,7 @@ ett form för när du klickar på ADD TO CART så skickas du till post-add-to-ca
         </div>
         <form action="/scripts/post-add-to-cart.php" method="post">
             <input type="hidden" name="product-id" value="<?= $product->id ?>">
-            <input class="box-btn" type="submit" value="Lägg till i varukorg">
+            <input class="box-btn add" type="submit" value="Lägg till i varukorg">
         </form>
     </div>
 

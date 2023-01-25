@@ -27,7 +27,7 @@ if(isset($_POST["title"]) && isset($_POST["price"])){
 }
 
 if($success){ //om du lyckas skickas du tillbaks till admin-sidan 
-    header("Location: /pages/admin.php");
+    header("Location: /pages/admin-products.php");
     die();
 }else{
     die("Kunde inte spara produkt");

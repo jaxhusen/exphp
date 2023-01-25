@@ -15,7 +15,7 @@ $success = $orders_db->update_order_status($_POST["id"], $_POST["status"]);
 }
 
 if($success){
-    header("Location: /pages/admin.php"); //om allt är OK så skickas du till admin.php
+    header("Location: /pages/admin-orders.php"); //om allt är OK så skickas du till admin.php
     die();
 }else{
     die("Fel vid uppdatering av order"); //annars error

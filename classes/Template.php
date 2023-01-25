@@ -53,7 +53,7 @@ class Template
                         </div>
                     </div>
                     <div class="dropdown">
-                        <a href="/pages/cart.php" class="drop-head">Varukorg</a>
+                        <a href="/pages/cart.php" class="drop-head cart-wiggle">Varukorg</a>
                     </div>
                     <?php if($is_logged_in) : ?>
                     <div class="dropdown">
@@ -68,7 +68,16 @@ class Template
                         </div>
                     </div>
                     <?php elseif ($is_admin) : ?>
-                        <a href="/../pages/admin.php">Admin sida</a>
+                        <div class="dropdown">
+                            <a href="#" class="drop-head">Admin sida</a>
+                        <div class="dropdown-content">
+                            <a href="/pages/admin-create-product.php">Skapa produkt</a>
+                            <a href="/pages/admin-orders.php">Alla ordrar</a>
+                            <a href="/pages/admin-products.php">Alla produkter</a>
+                            <a href="/pages/admin-users.php">Alla användare</a>
+                            <a href="/pages/admin-messages.php">Alla meddelanden</a>
+                        </div>
+                    </div>
                     <?php endif; ?> 
                 </ul>
                     </div>
@@ -148,7 +157,7 @@ public static function index($title)
                         </div>
                     </div>
                     <div class="dropdown">
-                        <a href="/pages/cart.php" class="drop-head">Varukorg</a>
+                        <a href="/pages/cart.php" class="drop-head cart-wiggle">Varukorg</a>
                     </div>
                     <?php if($is_logged_in) : ?>
                     <div class="dropdown">
@@ -163,7 +172,16 @@ public static function index($title)
                         </div>
                     </div>
                     <?php elseif ($is_admin) : ?>
-                        <a href="/../pages/admin.php">Admin sida</a>
+                        <div class="dropdown">
+                            <a href="#" class="drop-head">Admin sida</a>
+                        <div class="dropdown-content">
+                            <a href="/pages/admin-create-product.php">Skapa produkt</a>
+                            <a href="/pages/admin-orders.php">Alla ordrar</a>
+                            <a href="/pages/admin-products.php">Alla produkter</a>
+                            <a href="/pages/admin-users.php">Alla användare</a>
+                            <a href="/pages/admin-messages.php">Alla meddelanden</a>
+                        </div>
+                    </div>
                     <?php endif; ?> 
                 </ul>
                     </div>
