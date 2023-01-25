@@ -43,7 +43,7 @@ class Template
                         <div class="dropdown-content">
                             <a href="/pages/message.php">Kontakta oss</a>
                             <a href="/pages/find-us.php">Hitta hit</a>
-                            <a href="/pages/qanda.php">Vanliga frågor</a>
+                            <a href="/pages/qanda.php">Q / A</a>
                         </div>
                     </div>
                     <div class="dropdown">
@@ -57,10 +57,7 @@ class Template
                     </div>
                     <?php if($is_logged_in) : ?>
                     <div class="dropdown">
-                        <a href="/pages/my-account.php" class="drop-head">Mitt konto</a>
-                        <div class="dropdown-content">
-                            <a href="/pages/orders.php">Mina ordrar</a>
-                        </div>
+                        <a href="/pages/orders.php" class="drop-head">Mitt konto</a>
                     </div>
                     <?php endif; ?>
                     <?php if (!$is_logged_in) : ?>
@@ -140,7 +137,7 @@ public static function index($title)
                     <a href="/"  class="drop-head">Startsida</a>
                         <div class="dropdown-content">
                             <a href="/pages/message.php">Kontakta oss</a>
-                            <a href="/pages/qanda.php">Vanliga frågor</a>
+                            <a href="/pages/qanda.php">Q / A</a>
                             <a href="/pages/find-us.php">Hitta hit</a>
                         </div>
                     </div>
@@ -155,10 +152,7 @@ public static function index($title)
                     </div>
                     <?php if($is_logged_in) : ?>
                     <div class="dropdown">
-                        <a href="/pages/my-account.php" class="drop-head">Mitt konto</a>
-                        <div class="dropdown-content">
-                            <a href="/pages/orders.php">Mina ordrar</a>
-                        </div>
+                        <a href="/pages/orders.php" class="drop-head">Mitt konto</a>
                     </div>
                     <?php endif; ?>
                     <?php if (!$is_logged_in) : ?>
