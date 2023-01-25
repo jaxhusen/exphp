@@ -23,7 +23,7 @@ $products_db = new ProductsDb();
 $product = $products_db->get_one($_GET["id"]);
 
 
-Template::header("Update product");
+Template::header("");
 
 
 

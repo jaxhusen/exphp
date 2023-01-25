@@ -1,7 +1,7 @@
 <?php
 /* samma kod och förklaringar som på /pages/find-us.php bara att du har ett 
 meddelande på rad 28 där avståndet mellan valda koordinater och kontoret står */
- $office = "Gran Canaria, youmbo center";
+ $office = "Gran Canaria, yumbo center";
  $distance ="";
  $lat2 = 27.758183;
  $long2 = -15.576836;
@@ -19,6 +19,7 @@ if(isset($_POST["submit_coordinates"])){
     $distance = calculateDistance($lat1, $long1, $lat2, $long2);  
 
    echo '<h2 class="admin-heading"> Long / Lat</h2>';
+   echo '<hr style="margin:.7%;">'
    ?>
 
 
@@ -26,7 +27,7 @@ if(isset($_POST["submit_coordinates"])){
 } ?>
 <div class="form-container">
     <form method="POST" action="/../scripts/post-find-us.php" class="form-login" style="width: 60%">
-    <div class="p-text"> Avståndet mellan <?=$lat1 ?>, <?= $long1 ?> och Youmbo Centre, Gran Canaria är: <b><?= $distance ?></b> km</div>     
+    <div class="p-text"> Avståndet mellan koortinaterna</br> <?=$lat1 ?>, <?= $long1 ?> och Yumbo Centre, Gran Canaria är: <b><?= $distance ?></b> km</div>     
     <div class="form-btns">
             <input class="form-input" type="text" name="lat1" placeholder="Skriv in latitude">
             <input class="form-input" name="long1" placeholder="Skriv in longitude">

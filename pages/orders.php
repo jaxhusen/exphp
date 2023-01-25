@@ -8,7 +8,7 @@ require_once __DIR__ . "/../classes/ProductsDb.php";
 $is_logged_in = isset($_SESSION['user']);
 $logged_in_user = $is_logged_in ? $_SESSION['user'] : null;
 
-Template::header("Order page");
+Template::header("");
 
 /* funktion för att hämta varje order på mitt user ID */
 $orders_db = new OrdersDb();

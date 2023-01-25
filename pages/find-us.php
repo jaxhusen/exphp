@@ -8,7 +8,7 @@ require_once __DIR__ . "/../classes/Template.php";
 require_once __DIR__ . "/../classes/UsersDb.php";
 
 
-Template::header("Hitta hit");
+Template::header("");
    echo '<h2 class="admin-heading"> Long / Lat</h2>';
    echo '<hr style="margin:.7%;">';
    

@@ -4,7 +4,7 @@ require_once __DIR__ . "/../classes/Template.php";
 require_once __DIR__ . "/../classes/UsersDb.php";
 
 
-Template::header("Logga in");
+Template::header("");
 ?>
 
 <!-- Om du skriver in anv namn som redan finns i databasen users på register.php så skickas du hit med felmeddelande på rad 12 -->

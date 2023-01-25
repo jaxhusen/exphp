@@ -854,7 +854,6 @@ form{
 
 .footer{
     background-color: var(--color-background-dark); 
-    
     background-image: linear-gradient(to bottom,
                         var(--color-background-light),
                         black), 
@@ -975,22 +974,8 @@ form{
 .accordion.active+.panel {
     display: block;
 }
-/* ---------------- --------------------- */
 
-.p-text{
-    font-size: medium;
-    text-transform: uppercase;
-    color: var(--color-heading);
-    padding: 1%;
-}
-
-.distance{
-    color: red;
-    text-transform: uppercase;
-    font-size: medium;
-}
-
-
+/* ---------------- BUGER MENU ------------------- */
 .bar{
     margin-left: 10%;
     position: absolute;
@@ -1051,6 +1036,20 @@ form{
     z-index: 1;
     background-color: var(--color-primary);
     border-bottom: 1px solid var(--color-heading);
+}
+/* ---------------- --------------------- */
+
+.p-text{
+    font-size: medium;
+    text-transform: uppercase;
+    color: var(--color-heading);
+    padding: 1%;
+}
+
+.distance{
+    color: red;
+    text-transform: uppercase;
+    font-size: medium;
 }
 
 

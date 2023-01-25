@@ -197,8 +197,8 @@ toggleBtn.addEventListener("click", () => {
             <footer class="footer">
                 <div class="footer-one">
                     <div class="div-headern"> Arthusen </div>
-                    <a href="#"> Produkter </a>
-                    <a href="#"> Rea </a>
+                    <a href="/../pages/products.php"> Produkter </a>
+                    <a href="/../pages/jsonproducts.php"> Rea </a>
                 </div>
                 <div class="footer-one">
                     <div class="div-headern"> Kontakt </div>

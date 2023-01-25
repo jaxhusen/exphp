@@ -34,7 +34,7 @@ $orders_db = new OrdersDb();
 $orders = $orders_db->get_all();
 
 
-Template::header("Admin sida"); ?>
+Template::header(""); ?>
 
 <!-- Kod för att skapa en ny product och sen skcikas till sidan 'post-create-product.php' -->
  <h2 class="admin-heading"> Skapa produkt </h2>
